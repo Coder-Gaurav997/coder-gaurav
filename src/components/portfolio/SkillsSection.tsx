@@ -8,8 +8,6 @@ const techSkills = [
   { name: "Machine Learning", level: 85 },
   { name: "Cybersecurity", level: 80 },
   { name: "Computer Science", level: 90 },
-  { name: "Data Structures", level: 85 },
-  { name: "Git & GitHub", level: 80 },
 ];
 
 const professionalSkills = [
@@ -22,10 +20,22 @@ const professionalSkills = [
 ];
 
 const SkillBar = ({ name, level, delay, inView }: { name: string; level: number; delay: number; inView: boolean }) => (
-  <div className="space-y-2">
+  <motion.div
+    className="space-y-2"
+    initial={{ opacity: 0, x: -20 }}
+    animate={inView ? { opacity: 1, x: 0 } : {}}
+    transition={{ duration: 0.5, delay }}
+  >
     <div className="flex justify-between text-sm">
       <span className="font-mono text-foreground">{name}</span>
-      <span className="text-primary font-mono">{level}%</span>
+      <motion.span
+        className="text-primary font-mono"
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ delay: delay + 0.5 }}
+      >
+        {level}%
+      </motion.span>
     </div>
     <div className="h-2 bg-secondary rounded-full overflow-hidden">
       <motion.div
@@ -39,7 +49,7 @@ const SkillBar = ({ name, level, delay, inView }: { name: string; level: number;
         }}
       />
     </div>
-  </div>
+  </motion.div>
 );
 
 const SkillsSection = () => {
@@ -61,7 +71,6 @@ const SkillsSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Technical Skills */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -79,7 +88,6 @@ const SkillsSection = () => {
             </div>
           </motion.div>
 
-          {/* Professional Skills */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
