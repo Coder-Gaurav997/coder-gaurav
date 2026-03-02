@@ -1,15 +1,85 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const FloatingBubble = ({ delay, size, x, duration }: { delay: number; size: number; x: number; duration: number }) => (
+  <motion.div
+    className="absolute rounded-full"
+    style={{
+      width: size,
+      height: size,
+      left: `${x}%`,
+      bottom: -size,
+      background: `radial-gradient(circle, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.05))`,
+      border: `1px solid hsl(var(--primary) / 0.1)`,
+    }}
+    animate={{
+      y: [0, -window.innerHeight - size],
+      opacity: [0, 0.6, 0.3, 0],
+      scale: [0.8, 1.2, 0.9],
+    }}
+    transition={{
+      duration,
+      delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+);
+
+const GlowingDot = ({ x, y, delay }: { x: number; y: number; delay: number }) => (
+  <motion.div
+    className="absolute w-1.5 h-1.5 rounded-full"
+    style={{
+      left: `${x}%`,
+      top: `${y}%`,
+      background: `hsl(var(--primary))`,
+      boxShadow: `0 0 8px hsl(var(--primary) / 0.8), 0 0 20px hsl(var(--primary) / 0.4)`,
+    }}
+    animate={{
+      opacity: [0, 1, 0],
+      scale: [0.5, 1.5, 0.5],
+    }}
+    transition={{
+      duration: 3,
+      delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+);
 
 const HeroSection = () => {
+  const bubbles = Array.from({ length: 12 }, (_, i) => ({
+    delay: i * 1.5,
+    size: Math.random() * 40 + 10,
+    x: Math.random() * 100,
+    duration: Math.random() * 8 + 8,
+  }));
+
+  const dots = Array.from({ length: 20 }, (_, i) => ({
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 5,
+  }));
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-glow" />
 
-      {/* Scan line effect */}
+      {/* Floating bubbles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="w-full h-px bg-primary/10 animate-scan-line" />
+        {bubbles.map((b, i) => (
+          <FloatingBubble key={i} {...b} />
+        ))}
+      </div>
+
+      {/* Glowing dots */}
+      <div className="absolute inset-0 pointer-events-none">
+        {dots.map((d, i) => (
+          <GlowingDot key={i} {...d} />
+        ))}
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -39,13 +109,15 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          {["Python Developer", "C Developer", "AI Founder", "Cybersecurity Enthusiast"].map((tag) => (
-            <span
+          {["Python Developer", "C Developer", "AI Founder", "Cybersecurity Enthusiast"].map((tag, i) => (
+            <motion.span
               key={tag}
               className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow"
+              whileHover={{ scale: 1.1, boxShadow: "0 0 20px hsl(170 100% 50% / 0.4)" }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {tag}
-            </span>
+            </motion.span>
           ))}
         </motion.div>
 
@@ -66,18 +138,22 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex justify-center gap-4"
         >
-          <button
+          <motion.button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow hover:scale-105 transition-transform duration-200"
+            className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Explore My Work
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             className="px-8 py-3 border border-glow text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Get In Touch
-          </button>
+          </motion.button>
         </motion.div>
       </div>
 

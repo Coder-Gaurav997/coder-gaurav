@@ -1,44 +1,40 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, FolderGit2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, FolderGit2, ArrowRight } from "lucide-react";
 import Header from "@/components/portfolio/Header";
 import Footer from "@/components/portfolio/Footer";
 
 interface Project {
   name: string;
   about: string;
+  link?: string;
 }
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+const CODEVAULT_PROJECTS: Project[] = [
+  {
+    name: "RUDRAKSHA - Personal Assistant Bot",
+    about: "Rudraksha is a smart Telegram personal assistant bot by Gaurav Pandey that answers your questions instantly using AI...",
+    link: "https://my-codevault.vercel.app/projects/cbdf480d-e414-4e6d-bf72-1c1b79b81eea",
+  },
+  {
+    name: "AKRO - Encryption Algorithm",
+    about: "A lightweight Python-based encryption and obfuscation algorithm that secures text using ASCII transformation and key cipher...",
+    link: "https://my-codevault.vercel.app/projects/62644e7a-77c4-4eac-928a-bc2cfa0d7550",
+  },
+  {
+    name: "Qwen-0.5B Model Fine-Tuner",
+    about: "A complete implementation for fine-tuning the Qwen2.5-0.5B-Instruct model on OpenAssistant v1 dataset for humorous responses...",
+    link: "https://my-codevault.vercel.app/projects/c597dd05-346b-4a34-9c4e-3a3078f8b65b",
+  },
+  {
+    name: "DarkNeuron AI Platform",
+    about: "The core platform powering DarkNeuronAI — building intelligent systems and AI solutions for real-world applications...",
+  },
+];
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        // Fetching from the codevault website via a proxy-friendly approach
-        // We'll try fetching the GitHub repos as a reliable data source
-        const res = await fetch("https://api.github.com/users/Coder-Gaurav997/repos?sort=updated&per_page=20");
-        const data = await res.json();
-        if (Array.isArray(data)) {
-          setProjects(
-            data.map((repo: any) => ({
-              name: repo.name,
-              about: repo.description || "A project by Gaurav Pandey",
-            }))
-          );
-        }
-      } catch (err) {
-        console.error("Failed to fetch projects:", err);
-        // Fallback
-        setProjects([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProjects();
-  }, []);
+const Projects = () => {
+  const latestProjects = CODEVAULT_PROJECTS.slice(0, 4);
 
   return (
     <div className="min-h-screen bg-background">
@@ -62,59 +58,58 @@ const Projects = () => {
               My Projects
             </h1>
             <p className="text-muted-foreground mb-12">
-              A collection of things I've built — from AI tools to open-source contributions.
+              A collection of things I've built — from AI tools to encryption algorithms.
             </p>
           </motion.div>
 
-          {loading ? (
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="p-6 rounded-xl border border-glow bg-card animate-pulse">
-                  <div className="h-4 bg-secondary rounded w-2/3 mb-3" />
-                  <div className="h-3 bg-secondary rounded w-full" />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <>
-              <div className="grid sm:grid-cols-2 gap-4 mb-12">
-                {projects.map((project, i) => (
-                  <motion.div
-                    key={project.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="p-6 rounded-xl border border-glow bg-card box-glow hover:border-primary/50 hover:scale-[1.02] transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-3">
-                      <FolderGit2 className="text-primary shrink-0 mt-0.5" size={20} />
-                      <div>
-                        <h3 className="font-bold text-foreground mb-1">{project.name}</h3>
-                        <p className="text-muted-foreground text-sm">{project.about}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
+          <div className="grid sm:grid-cols-2 gap-4 mb-12">
+            {latestProjects.map((project, i) => (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-center"
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                className="p-6 rounded-xl border border-glow bg-card box-glow hover:border-primary/50 transition-all duration-300"
               >
-                <h3 className="text-xl font-bold text-foreground mb-4">See Projects In Detail</h3>
-                <a
-                  href="https://my-codevault.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow hover:scale-105 transition-transform duration-200"
-                >
-                  Visit CodeVault <ExternalLink size={16} />
-                </a>
+                <div className="flex items-start gap-3">
+                  <FolderGit2 className="text-primary shrink-0 mt-0.5" size={20} />
+                  <div>
+                    <h3 className="font-bold text-foreground mb-1">{project.name}</h3>
+                    <p className="text-muted-foreground text-sm line-clamp-2">{project.about}</p>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-primary text-xs font-mono mt-2 hover:gap-2 transition-all"
+                      >
+                        View <ArrowRight size={12} />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </motion.div>
-            </>
-          )}
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-center"
+          >
+            <h3 className="text-xl font-bold text-foreground mb-4">Many more projects...</h3>
+            <p className="text-muted-foreground text-sm mb-6">See all projects in detail on CodeVault</p>
+            <a
+              href="https://my-codevault.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow hover:scale-105 transition-transform duration-200"
+            >
+              Visit CodeVault <ExternalLink size={16} />
+            </a>
+          </motion.div>
         </div>
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -14,6 +14,8 @@ const navItems = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -24,7 +26,15 @@ const Header = () => {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("#")) {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      if (location.pathname !== "/") {
+        // Navigate to home first, then scroll after a short delay
+        navigate("/");
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -39,7 +49,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-xl font-bold font-mono text-glow text-primary">
-          &lt;GP /&gt;
+          Mr. Def@ult
         </Link>
 
         {/* Desktop nav */}
