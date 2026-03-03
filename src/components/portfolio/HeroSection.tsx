@@ -4,44 +4,44 @@ import { useEffect, useState } from "react";
 
 const FloatingBubble = ({ delay, size, x, duration }: { delay: number; size: number; x: number; duration: number }) => (
   <motion.div
-    className="absolute rounded-full"
+    className="absolute rounded-full will-change-transform"
     style={{
       width: size,
       height: size,
       left: `${x}%`,
       bottom: -size,
-      background: `radial-gradient(circle, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.05))`,
-      border: `1px solid hsl(var(--primary) / 0.1)`,
+      background: `radial-gradient(circle, hsl(var(--primary) / 0.12), hsl(var(--accent) / 0.04))`,
+      border: `1px solid hsl(var(--primary) / 0.08)`,
+      transform: 'translateZ(0)',
     }}
     animate={{
-      y: [0, -window.innerHeight - size],
-      opacity: [0, 0.6, 0.3, 0],
-      scale: [0.8, 1.2, 0.9],
+      y: [0, -1200],
+      opacity: [0, 0.5, 0.2, 0],
     }}
     transition={{
       duration,
       delay,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "linear",
     }}
   />
 );
 
 const GlowingDot = ({ x, y, delay }: { x: number; y: number; delay: number }) => (
   <motion.div
-    className="absolute w-1.5 h-1.5 rounded-full"
+    className="absolute w-1 h-1 rounded-full will-change-transform"
     style={{
       left: `${x}%`,
       top: `${y}%`,
       background: `hsl(var(--primary))`,
-      boxShadow: `0 0 8px hsl(var(--primary) / 0.8), 0 0 20px hsl(var(--primary) / 0.4)`,
+      boxShadow: `0 0 6px hsl(var(--primary) / 0.6)`,
+      transform: 'translateZ(0)',
     }}
     animate={{
-      opacity: [0, 1, 0],
-      scale: [0.5, 1.5, 0.5],
+      opacity: [0, 0.8, 0],
     }}
     transition={{
-      duration: 3,
+      duration: 4,
       delay,
       repeat: Infinity,
       ease: "easeInOut",
@@ -50,17 +50,17 @@ const GlowingDot = ({ x, y, delay }: { x: number; y: number; delay: number }) =>
 );
 
 const HeroSection = () => {
-  const bubbles = Array.from({ length: 12 }, (_, i) => ({
-    delay: i * 1.5,
-    size: Math.random() * 40 + 10,
+  const bubbles = Array.from({ length: 8 }, (_, i) => ({
+    delay: i * 2,
+    size: Math.random() * 30 + 10,
     x: Math.random() * 100,
-    duration: Math.random() * 8 + 8,
+    duration: Math.random() * 6 + 10,
   }));
 
-  const dots = Array.from({ length: 20 }, (_, i) => ({
+  const dots = Array.from({ length: 12 }, (_, i) => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
-    delay: Math.random() * 5,
+    delay: Math.random() * 6,
   }));
 
   return (
