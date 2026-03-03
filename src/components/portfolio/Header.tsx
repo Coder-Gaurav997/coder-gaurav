@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
+  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
@@ -48,7 +49,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold font-mono text-glow text-primary">
+        <Link to="/" className="text-xl font-bold text-glow text-primary" style={{ fontFamily: "'Orbitron', sans-serif" }}>
           Mr. Def@ult
         </Link>
 

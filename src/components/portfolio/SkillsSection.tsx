@@ -6,7 +6,6 @@ const techSkills = [
   { name: "C Programming", level: 85 },
   { name: "Artificial Intelligence", level: 90 },
   { name: "Machine Learning", level: 85 },
-  { name: "Cybersecurity", level: 80 },
   { name: "Computer Science", level: 90 },
 ];
 
@@ -15,7 +14,6 @@ const professionalSkills = [
   { name: "Critical Thinking", level: 90 },
   { name: "Team Leadership", level: 85 },
   { name: "Communication", level: 80 },
-  { name: "Project Management", level: 80 },
   { name: "Adaptability", level: 90 },
 ];
 
