@@ -30,12 +30,13 @@ const CommunityPopup = () => {
             onClick={handleClose}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 30 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.85 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[90%] max-w-md p-8 rounded-2xl border border-glow bg-card box-glow mx-auto"
+            className="fixed inset-0 z-[101] flex items-center justify-center p-4"
           >
+            <div className="w-full max-w-md p-8 rounded-2xl border border-glow bg-card box-glow relative">
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
@@ -98,6 +99,7 @@ const CommunityPopup = () => {
               >
                 Not now →
               </button>
+            </div>
             </div>
           </motion.div>
         </>
