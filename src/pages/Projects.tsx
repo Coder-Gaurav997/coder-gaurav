@@ -30,6 +30,7 @@ const CODEVAULT_PROJECTS: Project[] = [
   {
     name: "DarkNeuron AI Platform",
     about: "The core platform powering DarkNeuronAI — building intelligent systems and AI solutions for real-world applications...",
+    link: "https://darkneuron-ai.vercel.app",
   },
 ];
 

@@ -64,7 +64,7 @@ const HeroSection = () => {
   }));
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-glow" />
 
@@ -89,7 +89,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-mono text-primary text-sm mb-4 tracking-widest uppercase">
-            &gt; initializing system...
+            &gt; Introducing A Young Genius...
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ const HeroSection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
           <span className="gradient-text">Gaurav</span>{" "}
-          <span className="text-foreground">Pandey</span>
+          <span className="gradient-text">Pandey</span>
         </motion.h1>
 
         <motion.div
@@ -109,12 +109,14 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          {["Python Developer", "C Developer", "AI Founder", "Cybersecurity Enthusiast"].map((tag, i) => (
+          {["Python Developer", "AI Founder", "Cybersecurity Enthusiast"].map((tag, i) => (
             <motion.span
               key={tag}
               className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + i * 0.15, duration: 0.5 }}
               whileHover={{ scale: 1.1, boxShadow: "0 0 20px hsl(170 100% 50% / 0.4)" }}
-              transition={{ type: "spring", stiffness: 300 }}
             >
               {tag}
             </motion.span>
