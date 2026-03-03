@@ -49,7 +49,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold text-glow text-primary" style={{ fontFamily: "'Orbitron', sans-serif" }}>
+        <Link to="/" className="text-2xl font-bold text-glow text-primary tracking-tight">
           Mr. Def@ult
         </Link>
 
