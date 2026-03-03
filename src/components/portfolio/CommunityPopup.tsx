@@ -63,7 +63,7 @@ const CommunityPopup = () => {
 
               <div className="space-y-3 mb-6">
                 <a
-                  href="https://t.me/default_tg_grp"
+                  href="https://t.me/DNAI_Official"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-4 rounded-xl border border-glow bg-background hover:border-primary/50 hover:scale-[1.02] transition-all duration-300 group"
