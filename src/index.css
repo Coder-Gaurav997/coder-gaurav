@@ -59,6 +59,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -67,6 +69,11 @@
 
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  .will-change-transform {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
   }
 }
 
