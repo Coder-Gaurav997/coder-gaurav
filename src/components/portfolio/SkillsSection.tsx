@@ -5,7 +5,7 @@ const techSkills = [
   { name: "Python", level: 95 },
   { name: "C Programming", level: 85 },
   { name: "Artificial Intelligence", level: 90 },
-  { name: "Machine Learning", level: 85 },
+  { name: "Cybersecurity", level: 80 },
   { name: "Computer Science", level: 90 },
 ];
 
@@ -77,7 +77,7 @@ const SkillsSection = () => {
             <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-2">
               <span className="text-primary font-mono">&lt;</span>
               Technical Skills
-              <span className="text-primary font-mono">/&gt;</span>
+              <span className="text-primary font-mono">&gt;</span>
             </h3>
             <div className="space-y-5">
               {techSkills.map((skill, i) => (
@@ -94,7 +94,7 @@ const SkillsSection = () => {
             <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-2">
               <span className="text-accent font-mono">&lt;</span>
               Professional Skills
-              <span className="text-accent font-mono">/&gt;</span>
+              <span className="text-accent font-mono">&gt;</span>
             </h3>
             <div className="space-y-5">
               {professionalSkills.map((skill, i) => (
