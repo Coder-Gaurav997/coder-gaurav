@@ -15,17 +15,17 @@ const CODEVAULT_PROJECTS: Project[] = [
   {
     name: "RUDRAKSHA - Personal Assistant Bot",
     about: "Rudraksha is a smart Telegram personal assistant bot by Gaurav Pandey that answers your questions instantly using AI...",
-    link: "https://my-codevault.vercel.app/projects/cbdf480d-e414-4e6d-bf72-1c1b79b81eea",
+    link: "https://my-codevault.vercel.app",
   },
   {
     name: "AKRO - Encryption Algorithm",
     about: "A lightweight Python-based encryption and obfuscation algorithm that secures text using ASCII transformation and key cipher...",
-    link: "https://my-codevault.vercel.app/projects/62644e7a-77c4-4eac-928a-bc2cfa0d7550",
+    link: "https://my-codevault.vercel.app",
   },
   {
     name: "Qwen-0.5B Model Fine-Tuner",
     about: "A complete implementation for fine-tuning the Qwen2.5-0.5B-Instruct model on OpenAssistant v1 dataset for humorous responses...",
-    link: "https://my-codevault.vercel.app/projects/c597dd05-346b-4a34-9c4e-3a3078f8b65b",
+    link: "https://my-codevault.vercel.app",
   },
   {
     name: "DarkNeuron AI Platform",
