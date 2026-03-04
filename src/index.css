@@ -112,6 +112,11 @@
 
   .bg-radial-glow {
     background: radial-gradient(ellipse at 50% 0%, hsl(170 100% 50% / 0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .bg-fixed {
+    background-attachment: fixed;
   }
 
   .scrollbar-hide {

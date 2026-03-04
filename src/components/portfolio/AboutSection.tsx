@@ -35,7 +35,7 @@ const AboutSection = () => {
           >
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a 15-year-old developer and entrepreneur with an extraordinary passion for technology, artificial intelligence, and cybersecurity.
+                I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer and entrepreneur with an extraordinary passion for technology, artificial intelligence, and cybersecurity.
               </p>
               <p>
                 As the <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead a team building cutting-edge AI solutions. My journey started with curiosity and evolved into a mission — to push the boundaries of what's possible with code.
@@ -55,8 +55,8 @@ const AboutSection = () => {
             {highlights.map((item, i) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                 className="p-5 rounded-xl border border-glow bg-card box-glow hover:scale-105 transition-transform duration-300"
               >

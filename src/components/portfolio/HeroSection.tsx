@@ -64,7 +64,7 @@ const HeroSection = () => {
   }));
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid bg-fixed">
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-glow" />
 
@@ -97,7 +97,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+          className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
           <span className="gradient-text">Gaurav</span>{" "}
           <span className="gradient-text">Pandey</span>
@@ -129,7 +129,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          15-year-old prodigy building the future of AI.
+          {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old prodigy building the future of AI.
           <br />
           <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> — turning ideas into intelligent systems.
         </motion.p>
@@ -142,7 +142,7 @@ const HeroSection = () => {
         >
           <motion.button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow"
+            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base bg-primary text-primary-foreground font-semibold rounded-lg box-glow"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -150,7 +150,7 @@ const HeroSection = () => {
           </motion.button>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3 border border-glow text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base border border-glow text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
