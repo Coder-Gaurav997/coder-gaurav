@@ -27,14 +27,19 @@ const Header = () => {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("#")) {
+      const scrollToSection = () => {
+        const el = document.querySelector(href);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+
       if (location.pathname !== "/") {
-        // Navigate to home first, then scroll after a short delay
         navigate("/");
-        setTimeout(() => {
-          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-        }, 300);
+        setTimeout(scrollToSection, 500);
       } else {
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        // Delay scroll slightly to let mobile menu close animation finish
+        setTimeout(scrollToSection, 100);
       }
     }
   };
