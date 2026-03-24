@@ -81,12 +81,10 @@ const Projects = () => {
           });
 
           if (parsed.length > 0) {
-            // Always include DarkNeuron separately
-            const darkNeuron = FALLBACK_PROJECTS.find((p) => p.name.includes("DarkNeuron"));
-            if (darkNeuron && !parsed.some((p) => p.name.includes("DarkNeuron"))) {
-              parsed.push(darkNeuron);
-            }
-            setProjects(parsed);
+            // Take only top 3 latest from CodeVault + DarkNeuron as 4th
+            const top3 = parsed.slice(0, 3);
+            top3.push(DARKNEURON);
+            setProjects(top3);
           }
         }
       } catch (err) {
