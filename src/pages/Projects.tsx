@@ -15,40 +15,33 @@ interface Project {
 
 const CODEVAULT_URL = "https://my-codevault.vercel.app";
 
+const DARKNEURON: Project = {
+  name: "DarkNeuron AI Platform",
+  about: "The core platform powering DarkNeuronAI — building intelligent systems and AI solutions for real-world applications...",
+  link: "https://darkneuron-ai.vercel.app",
+  category: "AI/ML",
+};
+
 const FALLBACK_PROJECTS: Project[] = [
   {
     name: "ZENTRIX - My Own Programming Language",
-    about: "ZENTRIX is a custom programming language built in Python to demonstrate how interpreters and language design work. It supports variables, control flow, operators, and input/output.",
+    about: "ZENTRIX is a custom programming language built in Python to demonstrate how interpreters and language design work.",
     link: "https://my-codevault.vercel.app/projects/b9279d5d-4fae-440e-ac2f-315735f25948",
     category: "Python",
-    date: "Mar 24, 2026",
   },
   {
     name: "RUDRAKSHA - Personal Assistant Bot",
     about: "Rudraksha is a smart Telegram personal assistant bot by Gaurav Pandey that answers your questions instantly using AI...",
     link: "https://my-codevault.vercel.app/projects/cbdf480d-e414-4e6d-bf72-1c1b79b81eea",
     category: "Python",
-    date: "Feb 28, 2026",
   },
   {
     name: "AKRO - Encryption Algorithm",
     about: "A lightweight Python-based encryption and obfuscation algorithm that secures text using ASCII transformation and key cipher...",
     link: "https://my-codevault.vercel.app/projects/62644e7a-77c4-4eac-928a-bc2cfa0d7550",
     category: "Python",
-    date: "Feb 26, 2026",
   },
-  {
-    name: "Qwen-0.5B Model Fine-Tuner",
-    about: "A complete implementation for fine-tuning the Qwen2.5-0.5B-Instruct model on OpenAssistant v1 dataset for humorous responses...",
-    link: "https://my-codevault.vercel.app",
-    category: "AI/ML",
-  },
-  {
-    name: "DarkNeuron AI Platform",
-    about: "The core platform powering DarkNeuronAI — building intelligent systems and AI solutions for real-world applications...",
-    link: "https://darkneuron-ai.vercel.app",
-    category: "AI/ML",
-  },
+  DARKNEURON,
 ];
 
 const Projects = () => {
