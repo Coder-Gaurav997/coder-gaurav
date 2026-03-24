@@ -14,6 +14,7 @@ const Index = () => {
       <CommunityPopup />
       <Header />
       <HeroSection />
+      <NutshellSection />
       <AboutSection />
       <SkillsSection />
       <ContactSection />
