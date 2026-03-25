@@ -49,6 +49,49 @@
     --sidebar-border: 170 40% 15%;
     --sidebar-ring: 170 100% 50%;
   }
+
+  .light {
+    --background: 210 20% 96%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 170 100% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 15% 90%;
+    --secondary-foreground: 220 15% 30%;
+
+    --muted: 210 10% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 280 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 82%;
+    --input: 210 15% 88%;
+    --ring: 170 100% 35%;
+
+    --neon-glow: 170 100% 35%;
+    --neon-purple: 280 80% 55%;
+    --neon-green: 145 80% 40%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 30%;
+    --sidebar-primary: 170 100% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 92%;
+    --sidebar-accent-foreground: 220 15% 30%;
+    --sidebar-border: 210 15% 82%;
+    --sidebar-ring: 170 100% 35%;
+  }
 }
 
 @layer base {
@@ -138,12 +181,17 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(220 20% 4%);
+  background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(170 100% 50% / 0.3);
+  background: hsl(var(--primary) / 0.3);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(170 100% 50% / 0.5);
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Hide default cursor on desktop when custom cursor active */
+.custom-cursor-active * {
+  cursor: none !important;
 }

@@ -1,6 +1,41 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+
+const roles = ["Python Developer", "AI Founder", "Cybersecurity Enthusiast", "Creator of Zentrix", "Founder of DarkNeuronAI"];
+
+const TypingRoles = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    const speed = deleting ? 40 : 80;
+
+    if (!deleting && text === current) {
+      const pause = setTimeout(() => setDeleting(true), 1800);
+      return () => clearTimeout(pause);
+    }
+    if (deleting && text === "") {
+      setDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setText(deleting ? current.slice(0, text.length - 1) : current.slice(0, text.length + 1));
+    }, speed);
+    return () => clearTimeout(timer);
+  }, [text, deleting, roleIndex]);
+
+  return (
+    <span className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow inline-flex items-center min-w-[200px] justify-center">
+      {text}
+      <span className="ml-0.5 w-px h-4 bg-primary animate-blink inline-block" />
+    </span>
+  );
+};
 
 const FloatingBubble = ({ delay, size, x, duration }: { delay: number; size: number; x: number; duration: number }) => (
   <motion.div
@@ -109,18 +144,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          {["Python Developer", "AI Founder", "Cybersecurity Enthusiast"].map((tag, i) => (
-            <motion.span
-              key={tag}
-              className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 + i * 0.15, duration: 0.5 }}
-              whileHover={{ scale: 1.1, boxShadow: "0 0 20px hsl(170 100% 50% / 0.4)" }}
-            >
-              {tag}
-            </motion.span>
-          ))}
+          <TypingRoles />
         </motion.div>
 
         <motion.p
