@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -16,7 +16,6 @@ const navItems = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [light, setLight] = useState(() => document.documentElement.classList.contains("light"));
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -83,26 +82,13 @@ const Header = () => {
           )}
         </nav>
 
-        {/* Theme toggle + Mobile toggle */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => {
-              const next = !light;
-              setLight(next);
-              document.documentElement.classList.toggle("light", next);
-            }}
-            className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Toggle theme"
-          >
-            {light ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile menu */}

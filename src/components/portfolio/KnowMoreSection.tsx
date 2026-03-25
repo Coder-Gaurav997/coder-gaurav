@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { FileText, FolderGit2, ArrowRight } from "lucide-react";
+import { FileText, FolderGit2, ArrowRight, Clock } from "lucide-react";
 
 const tabs = [
   {
@@ -15,6 +15,12 @@ const tabs = [
     title: "My Projects",
     desc: "Explore the projects I've built and contributed to",
     href: "/projects",
+  },
+  {
+    icon: Clock,
+    title: "My Timeline",
+    desc: "See my journey from first line of code to founding DarkNeuronAI",
+    href: "/timeline",
   },
 ];
 
@@ -38,7 +44,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
