@@ -44,7 +44,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
