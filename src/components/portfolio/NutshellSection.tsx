@@ -32,7 +32,7 @@ const NutshellSection = () => {
   ];
 
   return (
-    <section id="nutshell" className="py-24 px-6 relative" aria-label="About Gaurav Pandey in a nutshell">
+    <section id="nutshell" className="py-24 px-6 relative" aria-label="About Gaurav Pandey in a nutshell" itemScope itemType="https://schema.org/Person">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -81,17 +81,14 @@ const NutshellSection = () => {
             className="space-y-3"
           >
             {info.map((item, i) => (
-              <motion.div
+              <div
                 key={item.label}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
                 className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors duration-200"
               >
                 <item.icon className="text-primary shrink-0" size={18} />
-                <span className="text-muted-foreground text-sm font-mono">{item.label}</span>
-                <span className="text-foreground font-semibold text-sm ml-auto text-right">{item.value}</span>
-              </motion.div>
+                <span className="text-muted-foreground text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
+                <span className="text-foreground font-semibold text-sm ml-auto text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
+              </div>
             ))}
           </motion.div>
 
@@ -105,21 +102,18 @@ const NutshellSection = () => {
               <Sparkles className="text-primary" size={18} />
               <h3 className="font-bold text-foreground text-lg">Special Projects</h3>
             </div>
-            <div className="space-y-2">
-              {projects.map((p, i) => (
-                <motion.div
+            <ul className="space-y-2" aria-label="Special projects by Gaurav Pandey">
+              {projects.map((p) => (
+                <li
                   key={p.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
                   className="flex items-baseline gap-2 p-3 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors duration-200"
                 >
-                  <span className="text-primary font-mono text-xs">▸</span>
-                  <span className="text-primary font-semibold text-sm">{p.name}</span>
+                  <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
+                  <strong className="text-primary font-semibold text-sm">{p.name}</strong>
                   <span className="text-muted-foreground text-xs">— {p.desc}</span>
-                </motion.div>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         </div>
       </div>
