@@ -15,12 +15,12 @@ const NutshellSection = () => {
   })();
 
   const info = [
-    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)" },
-    { icon: Calendar, label: "Age", value: `${age}` },
-    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010" },
-    { icon: MapPin, label: "Place of Living", value: "Mathura, U.P (India)" },
-    { icon: Code, label: "Skills", value: "Python, C, AI, Cybersecurity & more" },
-    { icon: Rocket, label: "Founder", value: "DarkNeuronAI" },
+    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", prop: "name", valueProp: "name" },
+    { icon: Calendar, label: "Age", value: `${age}`, prop: undefined, valueProp: undefined },
+    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", prop: undefined, valueProp: "birthDate" },
+    { icon: MapPin, label: "Place of Living", value: "Mathura, U.P (India)", prop: undefined, valueProp: "homeLocation" },
+    { icon: Code, label: "Skills", value: "Python, C, AI, Cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
+    { icon: Rocket, label: "Founder", value: "DarkNeuronAI", prop: undefined, valueProp: "affiliation" },
   ];
 
   const projects = [

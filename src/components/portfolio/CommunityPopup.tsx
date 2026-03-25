@@ -36,7 +36,7 @@ const CommunityPopup = () => {
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
             className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="w-full max-w-md p-8 rounded-2xl border border-glow bg-card box-glow relative">
+            <div className="w-full max-w-md p-6 sm:p-8 rounded-2xl border border-glow bg-card box-glow relative pointer-events-auto mx-auto my-auto">
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
