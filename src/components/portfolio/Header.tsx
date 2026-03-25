@@ -16,7 +16,6 @@ const navItems = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [light, setLight] = useState(() => document.documentElement.classList.contains("light"));
   const navigate = useNavigate();
   const location = useLocation();
 
