@@ -34,7 +34,7 @@ const CommunityPopup = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.85 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="fixed inset-0 z-[101] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none"
           >
             <div className="w-full max-w-md p-8 rounded-2xl border border-glow bg-card box-glow relative">
             <button
