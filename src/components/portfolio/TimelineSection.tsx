@@ -1,43 +1,37 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Rocket, Code, Brain, Shield, Zap, Star } from "lucide-react";
+import { Code, Shield, Wrench, Rocket, Zap } from "lucide-react";
 
 const milestones = [
   {
-    year: "2020",
-    title: "Started Coding Journey",
-    desc: "Began learning Python at age 10, fascinated by what code could create.",
+    year: "2024",
+    title: "Started with Python",
+    desc: "Began my coding journey by learning Python — the language that opened the door to programming.",
     icon: Code,
   },
   {
-    year: "2021",
-    title: "First AI Experiments",
-    desc: "Built early AI chatbots and automation scripts, diving deep into machine learning.",
-    icon: Brain,
-  },
-  {
-    year: "2022",
-    title: "Cybersecurity & AKRO",
-    desc: "Developed AKRO encryption algorithm and explored ethical hacking.",
+    year: "Mid 2024",
+    title: "Hacking & Cybersecurity",
+    desc: "Explored ethical hacking, cybersecurity fundamentals, and computer science concepts.",
     icon: Shield,
   },
   {
-    year: "2023",
+    year: "2025",
+    title: "C & Advanced Programming",
+    desc: "Learned C language and dove into advanced programming concepts and low-level computing.",
+    icon: Wrench,
+  },
+  {
+    year: "Mid 2025",
     title: "Founded DarkNeuronAI",
-    desc: "Launched DarkNeuronAI — a platform to build and share AI tools.",
+    desc: "Launched DarkNeuronAI — a platform to build and share intelligent AI tools and solutions.",
     icon: Rocket,
   },
   {
-    year: "2024",
-    title: "Created Zentrix Language",
-    desc: "Designed and built Zentrix — a custom programming language from scratch.",
+    year: "2026",
+    title: "Built Major Projects",
+    desc: "Created Zentrix (custom programming language), AKRO (encryption algorithm), Rudraksha (AI assistant), and more.",
     icon: Zap,
-  },
-  {
-    year: "2025",
-    title: "Expanding the Vision",
-    desc: "Building Cosmo, Rudraksha, Jarvis — intelligent AI assistants for everyone.",
-    icon: Star,
   },
 ];
 
