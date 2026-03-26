@@ -7,7 +7,7 @@ const tabs = [
   {
     icon: FileText,
     title: "Blogs",
-    desc: "Read my thoughts on AI, coding, and technology",
+    desc: "Read my thoughts on AI, coding, and tech",
     href: "/blogs",
   },
   {
