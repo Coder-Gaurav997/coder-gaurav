@@ -32,7 +32,6 @@ const TypingRoles = () => {
   return (
     <span className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow inline-flex items-center min-w-[200px] justify-center">
       {text}
-      <span className="ml-0.5 w-px h-4 bg-primary animate-blink inline-block" />
     </span>
   );
 };
