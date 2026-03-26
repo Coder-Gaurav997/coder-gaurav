@@ -26,26 +26,13 @@ const Blogs = () => {
         const data = await res.json();
         if (data.items) {
           setPosts(
-            data.items.map((item: any) => {
-              // Extract subtitle: first <h4> or first <p> text
-              const html = item.description || "";
-              const subtitleMatch = html.match(/<h4[^>]*>(.*?)<\/h4>/) || html.match(/<h3[^>]*>(.*?)<\/h3>/);
-              let subtitle = "";
-              if (subtitleMatch) {
-                subtitle = subtitleMatch[1].replace(/<[^>]*>/g, "").trim();
-              } else {
-                // Fallback: first <p> content
-                const pMatch = html.match(/<p[^>]*>(.*?)<\/p>/);
-                subtitle = pMatch ? pMatch[1].replace(/<[^>]*>/g, "").trim() : "";
-              }
-              return {
-                title: item.title,
-                link: item.link,
-                pubDate: item.pubDate,
-                description: subtitle,
-                thumbnail: item.thumbnail || "",
-              };
-            })
+            data.items.map((item: any) => ({
+              title: item.title,
+              link: item.link,
+              pubDate: item.pubDate,
+              description: item.description?.replace(/<[^>]*>/g, "").slice(0, 150) + "...",
+              thumbnail: item.thumbnail || "",
+            }))
           );
         }
       } catch (err) {
