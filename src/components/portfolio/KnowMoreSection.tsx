@@ -29,7 +29,7 @@ const KnowMoreSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 px-6 bg-grid relative" ref={ref}>
+    <section id="know-more" className="py-32 px-6 bg-grid relative" ref={ref}>
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
