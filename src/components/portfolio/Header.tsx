@@ -8,8 +8,8 @@ const navItems = [
   { label: "Nutshell", href: "#nutshell" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Know More", href: "#know-more" },
   { label: "Contact", href: "#contact" },
+  { label: "Know More", href: "#know-more" },
 ];
 
 const Header = () => {
