@@ -44,7 +44,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
@@ -54,14 +54,15 @@ const KnowMoreSection = () => {
             >
               <Link
                 to={tab.href}
-                className="block p-8 rounded-xl border border-glow bg-card box-glow hover:scale-[1.03] hover:border-primary/50 transition-all duration-300 group"
+                onClick={() => window.scrollTo({ top: 0 })}
+                className="block p-8 rounded-xl border border-glow bg-card box-glow hover:scale-[1.03] hover:border-primary/50 transition-all duration-300 group h-full flex flex-col items-center text-center"
               >
                 <tab.icon className="text-primary mb-4" size={32} />
-                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {tab.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">{tab.desc}</p>
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-mono group-hover:gap-2 transition-all">
+                <span className="inline-flex items-center gap-1 text-primary text-sm font-mono group-hover:gap-2 transition-all mt-auto">
                   Explore <ArrowRight size={14} />
                 </span>
               </Link>
