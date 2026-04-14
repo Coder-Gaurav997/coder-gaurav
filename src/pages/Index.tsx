@@ -6,12 +6,12 @@ import SkillsSection from "@/components/portfolio/SkillsSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import KnowMoreSection from "@/components/portfolio/KnowMoreSection";
 import Footer from "@/components/portfolio/Footer";
-import CommunityPopup from "@/components/portfolio/CommunityPopup";
+
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <CommunityPopup />
+      
       <Header />
       <HeroSection />
       <NutshellSection />
