@@ -2,6 +2,23 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { User, Calendar, MapPin, Code, Rocket, Sparkles } from "lucide-react";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+  },
+};
+
 const NutshellSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -66,7 +83,14 @@ const NutshellSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="font-mono text-primary text-sm mb-2 tracking-widest">// QUICK OVERVIEW</p>
+          <motion.p
+            initial={{ opacity: 0, letterSpacing: "0.5em" }}
+            animate={inView ? { opacity: 1, letterSpacing: "0.2em" } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-mono text-primary text-sm mb-2"
+          >
+            // QUICK OVERVIEW
+          </motion.p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text inline-block">
             About Me In a Nutshell
           </h2>
@@ -75,20 +99,24 @@ const NutshellSection = () => {
         <div className="grid md:grid-cols-2 gap-10">
           {/* Info Column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
             className="space-y-3"
           >
-            {info.map((item, i) => (
-              <div
+            {info.map((item) => (
+              <motion.div
                 key={item.label}
-                className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors duration-200"
+                variants={itemVariants}
+                whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
               >
-                <item.icon className="text-primary shrink-0" size={18} />
+                <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <item.icon className="text-primary shrink-0" size={18} />
+                </motion.div>
                 <span className="text-muted-foreground text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
                 <span className="text-foreground font-semibold text-sm ml-auto text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
@@ -98,22 +126,37 @@ const NutshellSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="text-primary" size={18} />
+            <motion.div
+              className="flex items-center gap-2 mb-4"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4 }}
+            >
+              <motion.div animate={inView ? { rotate: [0, 15, -15, 0] } : {}} transition={{ delay: 0.6, duration: 0.5 }}>
+                <Sparkles className="text-primary" size={18} />
+              </motion.div>
               <h3 className="font-bold text-foreground text-lg">Special Projects</h3>
-            </div>
-            <ul className="space-y-2" aria-label="Special projects by Gaurav Pandey">
+            </motion.div>
+            <motion.ul
+              className="space-y-2"
+              aria-label="Special projects by Gaurav Pandey"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
               {projects.map((p) => (
-                <li
+                <motion.li
                   key={p.name}
-                  className="flex items-baseline gap-2 p-3 rounded-lg border border-border/50 bg-card/50 hover:border-primary/30 transition-colors duration-200"
+                  variants={itemVariants}
+                  whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
+                  className="flex items-baseline gap-2 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
                 >
                   <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
                   <strong className="text-primary font-semibold text-sm">{p.name}</strong>
                   <span className="text-muted-foreground text-xs">— {p.desc}</span>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         </div>
       </div>

@@ -9,6 +9,21 @@ const contacts = [
   { icon: Globe, label: "Hugging Face", value: "DarkNeuron-AI", href: "https://huggingface.co/DarkNeuron-AI" },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.9 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 180,
+      damping: 18,
+      delay: 0.2 + i * 0.12,
+    },
+  }),
+};
+
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -22,11 +37,23 @@ const ContactSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-primary text-sm mb-2 tracking-widest">// CONTACT</p>
+          <motion.p
+            initial={{ opacity: 0, letterSpacing: "0.5em" }}
+            animate={inView ? { opacity: 1, letterSpacing: "0.2em" } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-mono text-primary text-sm mb-2"
+          >
+            // CONTACT
+          </motion.p>
           <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">Get In Touch</h2>
-          <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-muted-foreground mt-4 max-w-md mx-auto"
+          >
             Got a project idea? Want to collaborate? Let's connect and build something extraordinary.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-4">
@@ -36,14 +63,26 @@ const ContactSection = () => {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="flex items-center gap-4 p-5 rounded-xl border border-glow bg-card box-glow hover:scale-[1.02] hover:border-primary/50 transition-all duration-300 group"
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              whileHover={{
+                scale: 1.04,
+                y: -4,
+                boxShadow: "0 0 25px hsl(170 100% 50% / 0.2), 0 8px 30px hsl(170 100% 50% / 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-4 p-5 rounded-xl border border-glow bg-card box-glow transition-colors duration-300 group"
             >
-              <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+              <motion.div
+                className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                whileHover={{ rotate: [0, -10, 10, 0] }}
+                transition={{ duration: 0.4 }}
+              >
                 <item.icon className="text-primary" size={22} />
-              </div>
+              </motion.div>
               <div>
                 <p className="text-xs text-muted-foreground font-mono">{item.label}</p>
                 <p className="text-foreground font-medium text-sm">{item.value}</p>
