@@ -11,7 +11,7 @@ import Footer from "@/components/portfolio/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <CommunityPopup />
+      
       <Header />
       <HeroSection />
       <NutshellSection />
