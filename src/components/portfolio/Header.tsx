@@ -38,7 +38,6 @@ const Header = () => {
         navigate("/");
         setTimeout(scrollToSection, 500);
       } else {
-        // Delay scroll slightly to let mobile menu close animation finish
         setTimeout(scrollToSection, 100);
       }
     }
@@ -48,17 +47,24 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ type: "spring", stiffness: 120, damping: 20 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-glow"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold text-glow text-primary tracking-tight">
-          Mr. Def@ult
+          <motion.span
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="inline-block"
+          >
+            Mr. Def@ult
+          </motion.span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) =>
+          {navItems.map((item, i) =>
             item.href.startsWith("/") ? (
               <Link
                 key={item.label}
@@ -69,25 +75,30 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ) : (
-              <button
+              <motion.button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 relative group"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              </motion.button>
             )
           )}
         </nav>
 
         {/* Mobile toggle */}
-        <button
+        <motion.button
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
+          whileTap={{ scale: 0.9, rotate: 90 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile menu */}
@@ -97,27 +108,37 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-glow"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-glow overflow-hidden"
           >
             <nav className="flex flex-col items-center gap-4 py-6">
-              {navItems.map((item) =>
+              {navItems.map((item, i) =>
                 item.href.startsWith("/") ? (
-                  <Link
+                  <motion.div
                     key={item.label}
-                    to={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06, duration: 0.3 }}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      to={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
                 ) : (
-                  <button
+                  <motion.button
                     key={item.label}
                     onClick={() => handleNavClick(item.href)}
                     className="text-muted-foreground hover:text-primary transition-colors"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06, duration: 0.3 }}
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 )
               )}
             </nav>
