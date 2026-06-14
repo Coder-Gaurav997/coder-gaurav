@@ -1,37 +1,31 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 
 const roles = ["Python Developer", "AI Founder", "Cybersecurity Enthusiast", "Creator of Zentrix", "Founder of DarkNeuronAI"];
 
-const TypingRoles = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
+const FadingRoles = () => {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const current = roles[roleIndex];
-    const speed = deleting ? 40 : 80;
-
-    if (!deleting && text === current) {
-      const pause = setTimeout(() => setDeleting(true), 1800);
-      return () => clearTimeout(pause);
-    }
-    if (deleting && text === "") {
-      setDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      setText(deleting ? current.slice(0, text.length - 1) : current.slice(0, text.length + 1));
-    }, speed);
-    return () => clearTimeout(timer);
-  }, [text, deleting, roleIndex]);
+    const t = setInterval(() => setIndex((i) => (i + 1) % roles.length), 2400);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <span className="px-4 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/80 box-glow inline-flex items-center min-w-[200px] justify-center">
-      {text}
+    <span className="relative px-5 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/90 box-glow inline-flex items-center min-w-[240px] justify-center overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={roles[index]}
+          initial={{ opacity: 0, filter: "blur(8px)", y: 4 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          exit={{ opacity: 0, filter: "blur(8px)", y: -4 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="inline-block"
+        >
+          {roles[index]}
+        </motion.span>
+      </AnimatePresence>
     </span>
   );
 };
@@ -143,7 +137,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          <TypingRoles />
+          <FadingRoles />
         </motion.div>
 
         <motion.p
