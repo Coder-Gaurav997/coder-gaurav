@@ -66,7 +66,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 md:auto-rows-[180px] gap-4 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-4 md:auto-rows-[200px] gap-4 max-w-5xl mx-auto">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
@@ -81,7 +81,7 @@ const KnowMoreSection = () => {
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
               whileTap={{ scale: 0.97 }}
-              className={i === 0 ? "md:col-span-2" : ""}
+              className={i === 0 ? "md:col-span-2" : "md:col-span-1"}
             >
               <Link
                 to={tab.href}
