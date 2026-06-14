@@ -29,15 +29,6 @@ const NutshellSection = () => {
     return a;
   })();
 
-  const info = [
-    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", prop: "name", valueProp: "name" },
-    { icon: Calendar, label: "Age", value: `${age}`, prop: undefined, valueProp: undefined },
-    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", prop: undefined, valueProp: "birthDate" },
-    { icon: MapPin, label: "Place of Living", value: "Mathura, U.P (India)", prop: undefined, valueProp: "homeLocation" },
-    { icon: Code, label: "Skills", value: "Python, C, AI, Cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
-    { icon: Rocket, label: "Founder", value: "DarkNeuronAI", prop: undefined, valueProp: "affiliation" },
-  ];
-
   const projects = [
     { name: "Zentrix", desc: "My own programming language" },
     { name: "AKRO", desc: "Encryption algorithm" },
