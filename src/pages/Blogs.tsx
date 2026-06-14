@@ -18,10 +18,12 @@ const Blogs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
     const fetchBlogs = async () => {
       try {
         const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@golupandey95207"
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@golupandey95207&_=${Date.now()}`,
+          { cache: "no-store" }
         );
         const data = await res.json();
         if (data.items) {
