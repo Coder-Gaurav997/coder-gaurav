@@ -66,7 +66,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 md:auto-rows-[180px] gap-4 max-w-4xl mx-auto">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
@@ -81,24 +81,29 @@ const KnowMoreSection = () => {
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
               whileTap={{ scale: 0.97 }}
+              className={i === 0 ? "md:col-span-2" : ""}
             >
               <Link
                 to={tab.href}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="block p-8 rounded-xl border border-glow bg-card box-glow transition-colors duration-300 group h-full flex flex-col items-center text-center"
+                className={`block p-7 rounded-2xl border border-glow ${i === 0 ? "bg-gradient-to-br from-card via-card to-secondary/40" : "bg-card/60 backdrop-blur-sm"} box-glow transition-colors duration-300 group h-full flex flex-col ${i === 0 ? "items-start text-left" : "items-start text-left"} justify-between relative overflow-hidden`}
               >
+                {i === 0 && <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-accent/10 blur-3xl pointer-events-none" />}
                 <motion.div
                   whileHover={{ rotate: [0, -12, 12, 0], scale: 1.2 }}
                   transition={{ duration: 0.4 }}
+                  className="p-2 rounded-lg bg-primary/10 border border-primary/20 w-fit"
                 >
-                  <tab.icon className="text-primary mb-4" size={32} />
+                  <tab.icon className="text-primary" size={22} />
                 </motion.div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-                  {tab.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">{tab.desc}</p>
+                <div>
+                  <h3 className={`${i === 0 ? "text-2xl md:text-3xl" : "text-lg"} font-display font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors duration-200`}>
+                    {tab.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">{tab.desc}</p>
+                </div>
                 <motion.span
-                  className="inline-flex items-center gap-1 text-primary text-sm font-mono mt-auto"
+                  className="inline-flex items-center gap-1 text-primary text-sm font-mono"
                   whileHover={{ gap: "0.5rem" }}
                   transition={{ duration: 0.2 }}
                 >
