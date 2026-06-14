@@ -1,19 +1,21 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, Code, Rocket, Sparkles, Terminal, Zap, Cpu } from "lucide-react";
+import { User, Calendar, MapPin, Code, Rocket, Sparkles } from "lucide-react";
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
+  visible: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+  },
 };
 
-const tileVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.92 },
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring" as const, stiffness: 180, damping: 20 },
+    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
   },
 };
 
@@ -28,6 +30,15 @@ const NutshellSection = () => {
     if (now < new Date(now.getFullYear(), 2, 13)) a--;
     return a;
   })();
+
+  const info = [
+    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", prop: "name", valueProp: "name" },
+    { icon: Calendar, label: "Age", value: `${age}`, prop: undefined, valueProp: undefined },
+    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", prop: undefined, valueProp: "birthDate" },
+    { icon: MapPin, label: "Place of Living", value: "Mathura, U.P (India)", prop: undefined, valueProp: "homeLocation" },
+    { icon: Code, label: "Skills", value: "Python, C, AI, Cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
+    { icon: Rocket, label: "Founder", value: "DarkNeuronAI", prop: undefined, valueProp: "affiliation" },
+  ];
 
   const projects = [
     { name: "Zentrix", desc: "My own programming language" },
@@ -85,120 +96,69 @@ const NutshellSection = () => {
           </h2>
         </motion.div>
 
-        {/* BENTO GRID */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[120px] gap-3"
-        >
-          {/* Identity — large */}
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Info Column */}
           <motion.div
-            variants={tileVariants}
-            whileHover={{ y: -4 }}
-            className="col-span-2 row-span-2 rounded-2xl border border-glow bg-gradient-to-br from-card via-card to-secondary/40 box-glow p-6 flex flex-col justify-between relative overflow-hidden"
-            itemProp="name"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="space-y-3"
           >
-            <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-accent/10 blur-3xl" />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Identity</span>
-            <div className="relative z-10">
-              <div className="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight">Gaurav Pandey</div>
-              <div className="text-muted-foreground text-sm mt-1 font-mono">aka Mr. Def@ult</div>
-              <p className="text-muted-foreground text-sm mt-4 max-w-sm leading-relaxed">
-                Self-taught engineer obsessed with AI, language design, and breaking things to learn how they work.
-              </p>
-            </div>
+            {info.map((item) => (
+              <motion.div
+                key={item.label}
+                variants={itemVariants}
+                whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
+              >
+                <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <item.icon className="text-primary shrink-0" size={18} />
+                </motion.div>
+                <span className="text-muted-foreground text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
+                <span className="text-foreground font-semibold text-sm ml-auto text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* Age */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-4 flex flex-col justify-between">
-            <Calendar className="text-primary" size={16} />
-            <div>
-              <div className="font-display text-3xl font-bold gradient-text leading-none">{age}</div>
-              <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mt-1">Years</div>
-            </div>
-          </motion.div>
-
-          {/* Location */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-4 flex flex-col justify-between" itemProp="homeLocation">
-            <MapPin className="text-accent" size={16} />
-            <div>
-              <div className="font-display text-lg font-bold text-foreground leading-tight">Mathura</div>
-              <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mt-1">U.P, India</div>
-            </div>
-          </motion.div>
-
-          {/* DOB */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="col-span-2 rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-4 flex items-center gap-4" itemProp="birthDate">
-            <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-              <Sparkles className="text-primary" size={18} />
-            </div>
-            <div>
-              <div className="font-display text-base font-bold text-foreground">March 13, 2010</div>
-              <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mt-0.5">Date of birth</div>
-            </div>
-          </motion.div>
-
-          {/* Founder */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="col-span-2 rounded-2xl border border-glow bg-card/80 box-glow p-4 flex items-center gap-4">
-            <div className="p-2 rounded-lg bg-accent/15 border border-accent/30">
-              <Rocket className="text-accent" size={18} />
-            </div>
-            <div>
-              <div className="font-display text-base font-bold text-foreground">DarkNeuronAI</div>
-              <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mt-0.5">Founder & CEO</div>
-            </div>
-          </motion.div>
-
-          {/* Special projects — wide */}
+          {/* Projects Column */}
           <motion.div
-            variants={tileVariants}
-            whileHover={{ y: -4 }}
-            className="col-span-2 md:col-span-4 row-span-2 rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-6 relative overflow-hidden"
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Terminal className="text-primary" size={16} />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-primary">Special Projects</span>
-            </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2" aria-label="Special projects by Gaurav Pandey">
+            <motion.div
+              className="flex items-center gap-2 mb-4"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4 }}
+            >
+              <motion.div animate={inView ? { rotate: [0, 15, -15, 0] } : {}} transition={{ delay: 0.6, duration: 0.5 }}>
+                <Sparkles className="text-primary" size={18} />
+              </motion.div>
+              <h3 className="font-bold text-foreground text-lg">Special Projects</h3>
+            </motion.div>
+            <motion.ul
+              className="space-y-2"
+              aria-label="Special projects by Gaurav Pandey"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
               {projects.map((p) => (
                 <motion.li
                   key={p.name}
-                  whileHover={{ x: 4 }}
-                  className="flex items-baseline gap-2 p-2.5 rounded-lg border border-border/50 bg-background/40 hover:border-primary/40 transition-colors"
+                  variants={itemVariants}
+                  whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
+                  className="flex items-baseline gap-2 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
                 >
                   <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
-                  <strong className="text-foreground font-semibold text-sm">{p.name}</strong>
+                  <strong className="text-primary font-semibold text-sm">{p.name}</strong>
                   <span className="text-muted-foreground text-xs">— {p.desc}</span>
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
-
-          {/* Skills tile */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="col-span-2 rounded-2xl border border-border/60 bg-gradient-to-br from-card to-secondary/40 p-4 flex flex-col justify-between" itemProp="knowsAbout">
-            <div className="flex items-center gap-2">
-              <Code className="text-primary" size={16} />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Core Stack</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {["Python", "C", "AI/ML", "Cybersecurity", "Systems"].map((s) => (
-                <span key={s} className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-primary/10 border border-primary/20 text-primary">{s}</span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Energy tile */}
-          <motion.div variants={tileVariants} whileHover={{ y: -4 }} className="col-span-2 rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-4 flex items-center gap-4">
-            <div className="p-2 rounded-lg bg-accent/15 border border-accent/30">
-              <Zap className="text-accent" size={18} />
-            </div>
-            <div>
-              <div className="font-display text-base font-bold text-foreground">Always building</div>
-              <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider mt-0.5">From idea → shipped</div>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

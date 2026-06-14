@@ -1,8 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Github, Send, Globe, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Send, Globe } from "lucide-react";
 
-const small = [
+const contacts = [
+  { icon: Mail, label: "Email", value: "mr.hacker13032010@gmail.com", href: "mailto:mr.hacker13032010@gmail.com" },
   { icon: Github, label: "GitHub", value: "Coder-Gaurav997", href: "https://github.com/Coder-Gaurav997" },
   { icon: Send, label: "Telegram", value: "@Gaurav_Pandey722", href: "https://t.me/Gaurav_Pandey722" },
   { icon: Globe, label: "Hugging Face", value: "DarkNeuron-AI", href: "https://huggingface.co/DarkNeuron-AI" },
@@ -55,56 +56,36 @@ const ContactSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4">
-          {/* Featured Email card */}
-          <motion.a
-            href="mailto:mr.hacker13032010@gmail.com"
-            custom={0}
-            variants={cardVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            whileHover={{ y: -6 }}
-            className="md:col-span-2 md:row-span-2 group relative rounded-2xl border border-glow bg-gradient-to-br from-card via-card to-secondary/40 box-glow p-8 flex flex-col justify-between overflow-hidden min-h-[240px]"
-          >
-            <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-primary/10 blur-3xl" />
-            <div className="absolute -left-10 -bottom-10 w-48 h-48 rounded-full bg-accent/10 blur-3xl" />
-            <div className="relative z-10 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-primary">
-                <Mail size={16} />
-                <span className="font-mono text-[11px] uppercase tracking-widest">Primary contact</span>
-              </div>
-              <ArrowUpRight className="text-muted-foreground group-hover:text-primary transition-colors" size={18} />
-            </div>
-            <div className="relative z-10">
-              <div className="font-display text-xl md:text-3xl font-bold text-foreground break-all">
-                mr.hacker13032010@gmail.com
-              </div>
-              <div className="text-muted-foreground text-sm mt-2">Drop a line — I read every email.</div>
-            </div>
-          </motion.a>
-
-          {small.map((item, i) => (
+        <div className="grid sm:grid-cols-2 gap-4">
+          {contacts.map((item, i) => (
             <motion.a
               key={item.label}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              custom={i + 1}
+              custom={i}
               variants={cardVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              whileHover={{ y: -6 }}
-              className="group rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-5 flex flex-col justify-between min-h-[110px] hover:border-primary/50 transition-colors"
+              whileHover={{
+                scale: 1.04,
+                y: -4,
+                boxShadow: "0 0 25px hsl(170 100% 50% / 0.2), 0 8px 30px hsl(170 100% 50% / 0.1)",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-4 p-5 rounded-xl border border-glow bg-card box-glow transition-colors duration-300 group"
             >
-              <div className="flex items-center justify-between">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                  <item.icon className="text-primary" size={16} />
-                </div>
-                <ArrowUpRight className="text-muted-foreground group-hover:text-primary transition-colors" size={16} />
-              </div>
+              <motion.div
+                className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                whileHover={{ rotate: [0, -10, 10, 0] }}
+                transition={{ duration: 0.4 }}
+              >
+                <item.icon className="text-primary" size={22} />
+              </motion.div>
               <div>
-                <div className="font-display font-bold text-foreground">{item.label}</div>
-                <div className="text-xs text-muted-foreground font-mono mt-0.5 truncate">{item.value}</div>
+                <p className="text-xs text-muted-foreground font-mono">{item.label}</p>
+                <p className="text-foreground font-medium text-sm">{item.value}</p>
               </div>
             </motion.a>
           ))}
