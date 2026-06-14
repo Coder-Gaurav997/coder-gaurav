@@ -140,10 +140,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] mb-6 tracking-tight"
+            className="font-display text-4xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] mb-6 tracking-tight"
           >
-            <span className="block text-foreground">Gaurav</span>
-            <span className="block gradient-text">Pandey.</span>
+            <span className="block gradient-text">Gaurav Pandey</span>
           </motion.h1>
 
           <motion.div
