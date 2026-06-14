@@ -3,8 +3,12 @@ import { ArrowLeft } from "lucide-react";
 import Header from "@/components/portfolio/Header";
 import Footer from "@/components/portfolio/Footer";
 import TimelineSection from "@/components/portfolio/TimelineSection";
+import { useEffect } from "react";
 
 const Timeline = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Header />

@@ -49,10 +49,11 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
     const fetchProjects = async () => {
       try {
         // Try to fetch latest projects from CodeVault
-        const res = await fetch(`${CODEVAULT_URL}/projects`);
+        const res = await fetch(`${CODEVAULT_URL}/projects?_=${Date.now()}`, { cache: "no-store" });
         const html = await res.text();
 
         // Parse project cards from HTML
