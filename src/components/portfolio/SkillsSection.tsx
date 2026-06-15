@@ -33,7 +33,7 @@ const SkillChip = ({ skill, delay, inView, tone }: { skill: Skill; delay: number
       <motion.div
         whileHover={{ rotate: [0, -10, 10, 0], scale: 1.12 }}
         transition={{ duration: 0.4 }}
-        className={`w-10 h-10 rounded-xl glass-strong flex items-center justify-center shrink-0 text-${tone}`}
+        className={`w-10 h-10 rounded-xl glass-strong flex items-center justify-center shrink-0 ${tone === "primary" ? "text-primary" : "text-accent"}`}
       >
         <Icon size={18} />
       </motion.div>
