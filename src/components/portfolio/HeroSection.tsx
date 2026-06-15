@@ -110,14 +110,14 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="font-mono text-primary text-sm mb-4 tracking-widest uppercase">
-            &gt; Introducing A Young Genius...
+          <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.4em] uppercase">
+            &gt; Booting Up A Young Genius_
           </p>
         </motion.div>
 
@@ -125,11 +125,18 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 whitespace-nowrap"
+          className="font-hero text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 whitespace-nowrap tracking-tight leading-[0.95]"
         >
           <span className="gradient-text">Gaurav</span>{" "}
           <span className="gradient-text">Pandey</span>
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.9, delay: 0.35 }}
+          className="mx-auto mb-7 h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-primary to-transparent origin-center"
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -144,11 +151,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-center"
         >
-          {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old prodigy building the future of AI.
-          <br />
-          <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> — turning ideas into intelligent systems.
+          A {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old engineer crafting <span className="text-foreground font-semibold">intelligent systems</span> at the edge of AI &amp; security.
+          <br className="hidden sm:block" />
+          <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> — where ideas learn to think.
         </motion.p>
 
         <motion.div
