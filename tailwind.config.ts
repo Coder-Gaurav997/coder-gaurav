@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ["Manrope", "sans-serif"],
         display: ["Sora", "sans-serif"],
+        hero: ["Unbounded", "Sora", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
