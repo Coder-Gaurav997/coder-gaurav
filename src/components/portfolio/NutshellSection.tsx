@@ -96,20 +96,20 @@ const NutshellSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Info Column */}
+        <div className="glass rounded-3xl p-6 md:p-10">
+          {/* Info Rows */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="space-y-3"
+            className="divide-y divide-border/30"
           >
             {info.map((item) => (
               <motion.div
                 key={item.label}
                 variants={itemVariants}
-                whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
-                className="flex items-center gap-3 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="flex items-center gap-3 py-3"
               >
                 <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
                   <item.icon className="text-primary shrink-0" size={18} />
@@ -120,11 +120,12 @@ const NutshellSection = () => {
             ))}
           </motion.div>
 
-          {/* Projects Column */}
+          {/* Projects Section */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-8 pt-6 border-t border-border/30"
           >
             <motion.div
               className="flex items-center gap-2 mb-4"
@@ -138,7 +139,7 @@ const NutshellSection = () => {
               <h3 className="font-bold text-foreground text-lg">Special Projects</h3>
             </motion.div>
             <motion.ul
-              className="space-y-2"
+              className="grid sm:grid-cols-2 gap-2"
               aria-label="Special projects by Gaurav Pandey"
               variants={containerVariants}
               initial="hidden"
@@ -148,8 +149,8 @@ const NutshellSection = () => {
                 <motion.li
                   key={p.name}
                   variants={itemVariants}
-                  whileHover={{ x: 6, borderColor: "hsl(170, 100%, 50%)", transition: { duration: 0.2 } }}
-                  className="flex items-baseline gap-2 p-3 rounded-lg border border-border/50 bg-card/50 transition-colors duration-200"
+                  whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                  className="flex items-baseline gap-2 p-3 rounded-lg glass"
                 >
                   <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
                   <strong className="text-primary font-semibold text-sm">{p.name}</strong>

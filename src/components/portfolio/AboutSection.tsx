@@ -57,9 +57,9 @@ const AboutSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">Who Am I?</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
+        <div className="glass rounded-3xl p-8 md:p-12 mb-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-5 text-muted-foreground leading-relaxed text-base md:text-lg">
               {[
                 <>
                   I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer and entrepreneur with an extraordinary passion for technology, artificial intelligence, and cybersecurity.
@@ -83,33 +83,35 @@ const AboutSection = () => {
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {highlights.map((item, i) => (
+        <div className="flex flex-wrap justify-center gap-4">
+          {highlights.map((item, i) => (
+            <motion.div
+              key={item.label}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              whileHover={{
+                y: -6,
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+              className="glass rounded-2xl px-5 py-4 flex items-center gap-3 min-w-[200px] flex-1 max-w-[260px]"
+            >
               <motion.div
-                key={item.label}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                whileHover={{
-                  scale: 1.07,
-                  boxShadow: "0 0 25px hsl(170 100% 50% / 0.25), 0 0 50px hsl(170 100% 50% / 0.1)",
-                  transition: { type: "spring", stiffness: 300, damping: 15 },
-                }}
-                className="p-5 rounded-xl border border-glow bg-card box-glow transition-colors duration-300"
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
+                transition={{ duration: 0.4 }}
+                className="w-11 h-11 rounded-xl glass-strong flex items-center justify-center shrink-0"
               >
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <item.icon className="text-primary mb-3" size={28} />
-                </motion.div>
-                <h3 className="font-semibold text-foreground mb-1">{item.label}</h3>
-                <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <item.icon className="text-primary" size={22} />
               </motion.div>
-            ))}
-          </div>
+              <div className="min-w-0">
+                <h3 className="font-semibold text-foreground text-sm leading-tight">{item.label}</h3>
+                <p className="text-xs text-muted-foreground leading-snug">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
