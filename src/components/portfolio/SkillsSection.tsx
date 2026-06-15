@@ -1,65 +1,46 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Code2, Cpu, Brain, ShieldCheck, Binary, Lightbulb, Users, MessageSquare, Sparkles, Target } from "lucide-react";
 
 const techSkills = [
-  { name: "Python", level: 95 },
-  { name: "C Programming", level: 85 },
-  { name: "Artificial Intelligence", level: 90 },
-  { name: "Cybersecurity", level: 80 },
-  { name: "Computer Science", level: 90 },
+  { name: "Python", icon: Code2 },
+  { name: "C Programming", icon: Binary },
+  { name: "Artificial Intelligence", icon: Brain },
+  { name: "Cybersecurity", icon: ShieldCheck },
+  { name: "Computer Science", icon: Cpu },
 ];
 
 const professionalSkills = [
-  { name: "Problem Solving", level: 95 },
-  { name: "Critical Thinking", level: 90 },
-  { name: "Team Leadership", level: 85 },
-  { name: "Communication", level: 80 },
-  { name: "Adaptability", level: 90 },
+  { name: "Problem Solving", icon: Lightbulb },
+  { name: "Critical Thinking", icon: Target },
+  { name: "Team Leadership", icon: Users },
+  { name: "Communication", icon: MessageSquare },
+  { name: "Adaptability", icon: Sparkles },
 ];
 
-const SkillBar = ({ name, level, delay, inView }: { name: string; level: number; delay: number; inView: boolean }) => (
-  <motion.div
-    className="space-y-2"
-    initial={{ opacity: 0, x: -30 }}
-    animate={inView ? { opacity: 1, x: 0 } : {}}
-    transition={{ type: "spring", stiffness: 150, damping: 20, delay }}
-  >
-    <div className="flex justify-between text-sm">
-      <span className="font-mono text-foreground">{name}</span>
-      <motion.span
-        className="text-primary font-mono"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={inView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ delay: delay + 0.6, type: "spring", stiffness: 200 }}
-      >
-        {level}%
-      </motion.span>
-    </div>
-    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+type Skill = { name: string; icon: typeof Code2 };
+
+const SkillChip = ({ skill, delay, inView, tone }: { skill: Skill; delay: number; inView: boolean; tone: "primary" | "accent" }) => {
+  const Icon = skill.icon;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16, scale: 0.96 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ type: "spring", stiffness: 180, damping: 18, delay }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="glass rounded-2xl px-4 py-3 flex items-center gap-3 group"
+    >
       <motion.div
-        initial={{ width: 0 }}
-        animate={inView ? { width: `${level}%` } : { width: 0 }}
-        transition={{ duration: 1.4, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="h-full rounded-full relative"
-        style={{
-          background: `linear-gradient(90deg, hsl(170 100% 50%), hsl(280 100% 65%))`,
-          boxShadow: "0 0 10px hsl(170 100% 50% / 0.4)",
-        }}
+        whileHover={{ rotate: [0, -10, 10, 0], scale: 1.12 }}
+        transition={{ duration: 0.4 }}
+        className={`w-10 h-10 rounded-xl glass-strong flex items-center justify-center shrink-0 ${tone === "primary" ? "text-primary" : "text-accent"}`}
       >
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          animate={{
-            opacity: [0.3, 0.7, 0.3],
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            background: "linear-gradient(90deg, transparent, hsl(170 100% 80% / 0.3), transparent)",
-          }}
-        />
+        <Icon size={18} />
       </motion.div>
-    </div>
-  </motion.div>
-);
+      <span className="font-medium text-foreground text-sm tracking-tight">{skill.name}</span>
+    </motion.div>
+  );
+};
 
 const SkillsSection = () => {
   const ref = useRef(null);
@@ -86,71 +67,33 @@ const SkillsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">My Arsenal</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="glass rounded-3xl p-6 md:p-8"
           >
-            <motion.h3
-              className="text-xl font-bold text-foreground mb-8 flex items-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              <motion.span
-                className="text-primary font-mono"
-                animate={inView ? { rotateY: [0, 360] } : {}}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                &lt;
-              </motion.span>
-              Technical Skills
-              <motion.span
-                className="text-primary font-mono"
-                animate={inView ? { rotateY: [0, 360] } : {}}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                &gt;
-              </motion.span>
-            </motion.h3>
-            <div className="space-y-5">
+            <h3 className="text-sm font-mono text-primary mb-1 tracking-[0.25em] uppercase">&gt; Technical</h3>
+            <p className="text-xl md:text-2xl font-bold text-foreground mb-6">Tools I Build With</p>
+            <div className="grid sm:grid-cols-2 gap-3">
               {techSkills.map((skill, i) => (
-                <SkillBar key={skill.name} {...skill} delay={0.3 + i * 0.1} inView={inView} />
+                <SkillChip key={skill.name} skill={skill} delay={0.25 + i * 0.07} inView={inView} tone="primary" />
               ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="glass rounded-3xl p-6 md:p-8"
           >
-            <motion.h3
-              className="text-xl font-bold text-foreground mb-8 flex items-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              <motion.span
-                className="text-accent font-mono"
-                animate={inView ? { rotateY: [0, 360] } : {}}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                &lt;
-              </motion.span>
-              Professional Skills
-              <motion.span
-                className="text-accent font-mono"
-                animate={inView ? { rotateY: [0, 360] } : {}}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                &gt;
-              </motion.span>
-            </motion.h3>
-            <div className="space-y-5">
+            <h3 className="text-sm font-mono text-accent mb-1 tracking-[0.25em] uppercase">&gt; Professional</h3>
+            <p className="text-xl md:text-2xl font-bold text-foreground mb-6">How I Operate</p>
+            <div className="grid sm:grid-cols-2 gap-3">
               {professionalSkills.map((skill, i) => (
-                <SkillBar key={skill.name} {...skill} delay={0.3 + i * 0.1} inView={inView} />
+                <SkillChip key={skill.name} skill={skill} delay={0.35 + i * 0.07} inView={inView} tone="accent" />
               ))}
             </div>
           </motion.div>
