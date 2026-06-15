@@ -62,13 +62,16 @@ const AboutSection = () => {
             <div className="space-y-5 text-muted-foreground leading-relaxed text-base md:text-lg">
               {[
                 <>
-                  I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer and entrepreneur with an extraordinary passion for technology, artificial intelligence, and cybersecurity.
+                  Hello — I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher and entrepreneur engineering at the intersection of <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span> and <span className="text-primary">cybersecurity</span>.
                 </>,
                 <>
-                  As the <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead a team building cutting-edge AI solutions. My journey started with curiosity and evolved into a mission — to push the boundaries of what's possible with code.
+                  As the <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead the design and development of intelligent products — turning research-grade ideas into reliable, production-ready systems used in the real world.
                 </>,
                 <>
-                  From writing complex algorithms in <span className="text-primary">Python</span> and <span className="text-primary">C</span> to exploring the depths of cybersecurity, I thrive on challenges that most consider beyond their reach.
+                  My craft spans low-level <span className="text-primary">C</span> internals, high-velocity <span className="text-primary">Python</span> engineering, and offensive-security mindset — a combination I use to ship software that is fast, secure and quietly powerful.
+                </>,
+                <>
+                  I believe great technology is built by curious minds who refuse to stop at "good enough". Every line of code I write is an attempt to make the next version of the future a little more inevitable.
                 </>,
               ].map((content, i) => (
                 <motion.p
