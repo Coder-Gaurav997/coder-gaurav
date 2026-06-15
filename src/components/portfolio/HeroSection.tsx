@@ -125,7 +125,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 whitespace-nowrap"
         >
           <span className="gradient-text">Gaurav</span>{" "}
           <span className="gradient-text">Pandey</span>
