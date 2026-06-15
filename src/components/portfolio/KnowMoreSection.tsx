@@ -66,7 +66,7 @@ const KnowMoreSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="flex flex-col gap-5 max-w-3xl mx-auto">
           {tabs.map((tab, i) => (
             <motion.div
               key={tab.title}
@@ -75,30 +75,31 @@ const KnowMoreSection = () => {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               whileHover={{
-                scale: 1.06,
-                y: -8,
-                boxShadow: "0 0 30px hsl(170 100% 50% / 0.2), 0 12px 40px hsl(170 100% 50% / 0.1)",
+                x: 6,
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
-              whileTap={{ scale: 0.97 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Link
                 to={tab.href}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="block p-8 rounded-xl border border-glow bg-card box-glow transition-colors duration-300 group h-full flex flex-col items-center text-center"
+                className="glass rounded-2xl p-6 md:p-7 flex items-center gap-5 group transition-all duration-300 hover:border-primary/40"
               >
                 <motion.div
-                  whileHover={{ rotate: [0, -12, 12, 0], scale: 1.2 }}
+                  whileHover={{ rotate: [0, -12, 12, 0], scale: 1.15 }}
                   transition={{ duration: 0.4 }}
+                  className="shrink-0 w-14 h-14 rounded-xl glass-strong flex items-center justify-center"
                 >
-                  <tab.icon className="text-primary mb-4" size={32} />
+                  <tab.icon className="text-primary" size={26} />
                 </motion.div>
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-                  {tab.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">{tab.desc}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-200">
+                    {tab.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">{tab.desc}</p>
+                </div>
                 <motion.span
-                  className="inline-flex items-center gap-1 text-primary text-sm font-mono mt-auto"
+                  className="hidden sm:inline-flex items-center gap-1 text-primary text-sm font-mono shrink-0"
                   whileHover={{ gap: "0.5rem" }}
                   transition={{ duration: 0.2 }}
                 >
