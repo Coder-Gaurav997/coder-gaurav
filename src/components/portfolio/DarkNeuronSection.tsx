@@ -45,7 +45,7 @@ const DarkNeuronSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="darkneuron" className="py-32 px-6 relative bg-grid" ref={ref}>
+    <section id="darkneuron" className="pt-32 pb-12 px-6 relative bg-grid" ref={ref}>
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -77,12 +77,12 @@ const DarkNeuronSection = () => {
             <motion.div
               whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
               transition={{ duration: 0.4 }}
-              className="w-12 h-12 rounded-xl glass-strong flex items-center justify-center"
+              className="w-10 h-10 rounded-xl glass-strong flex items-center justify-center"
             >
-              <Sparkles className="text-primary" size={22} />
+              <Sparkles className="text-primary" size={18} />
             </motion.div>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-              Intelligence, refined.
+            <h3 className="text-lg md:text-xl font-semibold text-foreground tracking-tight">
+              Where neurons learn to think — and think faster.
             </h3>
           </div>
           <div className="max-w-3xl space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg">
@@ -128,12 +128,12 @@ const DarkNeuronSection = () => {
           className="mt-10 flex justify-center"
         >
           <a
-            href="https://huggingface.co/DarkNeuron-AI"
+            href="https://darkneuron-ai.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-strong text-primary font-semibold text-sm hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-strong text-primary font-semibold text-sm hover:text-foreground transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.45),0_0_60px_hsl(var(--accent)/0.25)]"
           >
-            <Shield size={16} /> Explore DarkNeuronAI on Hugging Face
+            <Shield size={16} /> Visit DarkNeuronAI
           </a>
         </motion.div>
       </div>

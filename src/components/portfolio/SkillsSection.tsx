@@ -47,7 +47,7 @@ const SkillsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 px-6 relative bg-grid" ref={ref}>
+    <section id="skills" className="pt-12 pb-32 px-6 relative bg-grid" ref={ref}>
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
