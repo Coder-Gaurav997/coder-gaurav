@@ -98,7 +98,7 @@ const KnowMoreSection = () => {
                   </h3>
                   <p className="text-muted-foreground text-sm">{tab.desc}</p>
                 </div>
-                <span className="hidden sm:inline-flex items-center gap-1 text-primary text-sm font-mono shrink-0">
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-primary text-sm font-mono shrink-0 px-3 py-1.5 rounded-lg glass-strong transition-all duration-300 group-hover:shadow-[0_0_18px_hsl(var(--primary)/0.5),0_0_40px_hsl(var(--accent)/0.25)] group-hover:text-foreground">
                   Explore <ArrowRight size={14} />
                 </span>
               </Link>
