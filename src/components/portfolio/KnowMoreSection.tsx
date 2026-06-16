@@ -98,13 +98,9 @@ const KnowMoreSection = () => {
                   </h3>
                   <p className="text-muted-foreground text-sm">{tab.desc}</p>
                 </div>
-                <motion.span
-                  className="hidden sm:inline-flex items-center gap-1 text-primary text-sm font-mono shrink-0"
-                  whileHover={{ gap: "0.5rem" }}
-                  transition={{ duration: 0.2 }}
-                >
+                <span className="hidden sm:inline-flex items-center gap-1 text-primary text-sm font-mono shrink-0">
                   Explore <ArrowRight size={14} />
-                </motion.span>
+                </span>
               </Link>
             </motion.div>
           ))}
