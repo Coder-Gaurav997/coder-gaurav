@@ -154,7 +154,7 @@ const HeroSection = () => {
           className="max-w-3xl mx-auto mb-12 text-center"
         >
           <p className="text-sm md:text-lg text-muted-foreground leading-relaxed whitespace-nowrap overflow-hidden">
-            {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()} y/o engineer — building <span className="text-foreground font-semibold">intelligent systems</span> where AI meets security.
+            Teen architect of <span className="text-foreground font-semibold">thinking machines</span> — where AI meets security.
           </p>
           <p className="text-sm md:text-lg mt-2">
             <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> <span className="text-muted-foreground">— where ideas learn to think.</span>
@@ -169,7 +169,7 @@ const HeroSection = () => {
         >
           <motion.button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base bg-primary text-primary-foreground font-semibold rounded-lg box-glow"
+            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base glass-strong text-primary font-semibold rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.25)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -177,7 +177,7 @@ const HeroSection = () => {
           </motion.button>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base border border-glow text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base glass text-foreground rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--accent)/0.4)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
