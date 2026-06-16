@@ -68,16 +68,14 @@ const ContactSection = () => {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               whileHover={{
-                scale: 1.04,
                 y: -4,
-                boxShadow: "0 0 25px hsl(170 100% 50% / 0.2), 0 8px 30px hsl(170 100% 50% / 0.1)",
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-4 p-5 rounded-xl border border-glow bg-card box-glow transition-colors duration-300 group"
+              className="glass rounded-2xl flex items-center gap-4 p-5 transition-colors duration-300 group"
             >
               <motion.div
-                className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                className="p-3 rounded-xl glass-strong text-primary"
                 whileHover={{ rotate: [0, -10, 10, 0] }}
                 transition={{ duration: 0.4 }}
               >

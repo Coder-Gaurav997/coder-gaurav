@@ -116,7 +116,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.4em] uppercase">
+          <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.15em] uppercase">
             &gt; Booting Up A Young Genius_
           </p>
         </motion.div>
@@ -147,16 +147,19 @@ const HeroSection = () => {
           <FadingRoles />
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-center"
+          className="max-w-3xl mx-auto mb-12 text-center"
         >
-          A {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old engineer crafting <span className="text-foreground font-semibold">intelligent systems</span> at the edge of AI &amp; security.
-          <br className="hidden sm:block" />
-          <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> — where ideas learn to think.
-        </motion.p>
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed whitespace-nowrap overflow-hidden">
+            {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()} y/o engineer — building <span className="text-foreground font-semibold">intelligent systems</span> where AI meets security.
+          </p>
+          <p className="text-sm md:text-lg mt-2">
+            <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> <span className="text-muted-foreground">— where ideas learn to think.</span>
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
