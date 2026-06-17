@@ -7,7 +7,7 @@ import SkillsSection from "@/components/portfolio/SkillsSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import KnowMoreSection from "@/components/portfolio/KnowMoreSection";
 import Footer from "@/components/portfolio/Footer";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 
 const Index = () => {
