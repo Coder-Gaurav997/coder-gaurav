@@ -73,7 +73,7 @@ const DarkNeuronSection = () => {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="glass rounded-3xl p-8 md:p-12 mb-10"
         >
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center justify-center gap-3 mb-5 text-center">
             <motion.div
               whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
               transition={{ duration: 0.4 }}
@@ -85,7 +85,7 @@ const DarkNeuronSection = () => {
               Where neurons learn to think — and think faster.
             </h3>
           </div>
-          <div className="max-w-3xl space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-center">
             <p>
               <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development team building smart neural-network solutions to tackle real-world business and technical problems.
             </p>

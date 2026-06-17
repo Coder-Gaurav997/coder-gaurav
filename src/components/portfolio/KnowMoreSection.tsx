@@ -82,7 +82,12 @@ const KnowMoreSection = () => {
             >
               <Link
                 to={tab.href}
-                onClick={() => window.scrollTo({ top: 0 })}
+                onClick={() => {
+                  try {
+                    sessionStorage.setItem("home-scroll", String(window.scrollY));
+                  } catch {}
+                  window.scrollTo({ top: 0 });
+                }}
                 className="glass rounded-2xl p-6 md:p-7 flex items-center gap-5 group transition-all duration-300 hover:border-primary/40"
               >
                 <motion.div
