@@ -1,12 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Github, Send, Globe } from "lucide-react";
+import { Mail, Github, Send, Globe, Linkedin, Code2 } from "lucide-react";
 
 const contacts = [
   { icon: Mail, label: "Email", value: "mr.hacker13032010@gmail.com", href: "mailto:mr.hacker13032010@gmail.com" },
   { icon: Github, label: "GitHub", value: "Coder-Gaurav997", href: "https://github.com/Coder-Gaurav997" },
   { icon: Send, label: "Telegram", value: "@Gaurav_Pandey722", href: "https://t.me/Gaurav_Pandey722" },
   { icon: Globe, label: "Hugging Face", value: "DarkNeuron-AI", href: "https://huggingface.co/DarkNeuron-AI" },
+  { icon: Linkedin, label: "LinkedIn", value: "in/gaurav-pandey-a9089b366", href: "https://www.linkedin.com/in/gaurav-pandey-a9089b366" },
+  { icon: Code2, label: "Dev Community", value: "@mr_default722", href: "https://dev.to/mr_default722" },
 ];
 
 const cardVariants = {
