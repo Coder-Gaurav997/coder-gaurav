@@ -22,6 +22,7 @@ const Index = () => {
       <ContactSection />
       <KnowMoreSection />
       <Footer />
+      <ScoutPopup />
     </div>
   );
 };
