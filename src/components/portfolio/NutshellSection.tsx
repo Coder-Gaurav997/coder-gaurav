@@ -41,13 +41,12 @@ const NutshellSection = () => {
   ];
 
   const projects = [
+    { name: "Scout", desc: "Autonomous research & report gen agent" },
     { name: "Zentrix", desc: "My own programming language" },
     { name: "AKRO", desc: "Encryption algorithm" },
     { name: "Rudraksha", desc: "Personal AI Telegram assistant" },
     { name: "Jarvis", desc: "AI assistant on PC" },
     { name: "Cosmo", desc: "All-rounder AI Telegram bot" },
-    { name: "Trinetra Spy", desc: "TG PC spying bot" },
-    { name: "Scout", desc: "Autonomous research & report gen agent" },
   ];
 
   return (
