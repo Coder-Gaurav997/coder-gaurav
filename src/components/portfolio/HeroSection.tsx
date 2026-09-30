@@ -31,8 +31,8 @@ const FadingRoles = () => {
 };
 
 const FloatingBubble = ({ delay, size, x, duration }: { delay: number; size: number; x: number; duration: number }) => (
-  <motion.div
-    className="absolute rounded-full will-change-transform"
+  <div
+    className="absolute rounded-full anim-bubble"
     style={{
       width: size,
       height: size,
@@ -40,39 +40,21 @@ const FloatingBubble = ({ delay, size, x, duration }: { delay: number; size: num
       bottom: -size,
       background: `radial-gradient(circle, hsl(var(--primary) / 0.12), hsl(var(--accent) / 0.04))`,
       border: `1px solid hsl(var(--primary) / 0.08)`,
-      transform: 'translateZ(0)',
-    }}
-    animate={{
-      y: [0, -1200],
-      opacity: [0, 0.5, 0.2, 0],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
+      animationDuration: `${duration}s`,
+      animationDelay: `${delay}s`,
     }}
   />
 );
 
 const GlowingDot = ({ x, y, delay }: { x: number; y: number; delay: number }) => (
-  <motion.div
-    className="absolute w-1 h-1 rounded-full will-change-transform"
+  <div
+    className="absolute w-1 h-1 rounded-full anim-dot"
     style={{
       left: `${x}%`,
       top: `${y}%`,
       background: `hsl(var(--primary))`,
       boxShadow: `0 0 6px hsl(var(--primary) / 0.6)`,
-      transform: 'translateZ(0)',
-    }}
-    animate={{
-      opacity: [0, 0.8, 0],
-    }}
-    transition={{
-      duration: 4,
-      delay,
-      repeat: Infinity,
-      ease: "easeInOut",
+      animationDelay: `${delay}s`,
     }}
   />
 );
@@ -193,12 +175,12 @@ const HeroSection = () => {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+        <div
+          className="anim-chevron"
+          style={{ animationDelay: "1.5s" }}
         >
           <ChevronDown className="text-primary/50" size={28} />
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );
