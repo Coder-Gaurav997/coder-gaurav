@@ -47,6 +47,7 @@ const NutshellSection = () => {
     { name: "Jarvis", desc: "AI assistant on PC" },
     { name: "Cosmo", desc: "All-rounder AI Telegram bot" },
     { name: "Trinetra Spy", desc: "TG PC spying bot" },
+    { name: "Scout", desc: "Autonomous research & report gen agent" },
   ];
 
   return (
