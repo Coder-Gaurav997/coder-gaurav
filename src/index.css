@@ -215,3 +215,50 @@ html {
 .custom-cursor-active * {
   cursor: none !important;
 }
+
+@layer utilities {
+  /* GPU-friendly ambient motion (compositor-only: transform + opacity) */
+  @keyframes bubble-rise {
+    0% { transform: translate3d(0, 0, 0); opacity: 0; }
+    8% { opacity: 0.5; }
+    55% { opacity: 0.25; }
+    96% { opacity: 0; }
+    100% { transform: translate3d(0, -115vh, 0); opacity: 0; }
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes chevron-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  @keyframes scout-ring {
+    0% { transform: scale(1); opacity: 0.45; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+
+  @keyframes scout-shine {
+    0% { transform: translateX(-170%) skewX(-12deg); }
+    55%, 100% { transform: translateX(330%) skewX(-12deg); }
+  }
+
+  .anim-bubble {
+    animation: bubble-rise linear infinite;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .anim-dot {
+    animation: dot-pulse 4s ease-in-out infinite;
+    will-change: opacity;
+  }
+
+  .anim-chevron {
+    animation: chevron-float 1.6s ease-in-out infinite;
+    will-change: transform;
+  }
+}
