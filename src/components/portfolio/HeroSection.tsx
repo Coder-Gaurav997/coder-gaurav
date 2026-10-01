@@ -17,10 +17,10 @@ const FadingRoles = () => {
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[index]}
-          initial={{ opacity: 0, filter: "blur(8px)", y: 4 }}
-          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          exit={{ opacity: 0, filter: "blur(8px)", y: -4 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
           className="inline-block"
         >
           {roles[index]}

@@ -87,7 +87,7 @@ const DarkNeuronSection = () => {
           </div>
           <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-center">
             <p>
-              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development team building smart neural-network solutions to tackle real-world business and technical problems.
+              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development company, founded in 2025, building smart neural-network solutions to tackle real-world business and technical problems.
             </p>
             <p>
               Our mission is to make advanced AI <span className="text-foreground font-semibold">accessible, efficient and ethical</span> — engineering models that think faster, cost less to run and respect the data they learn from.

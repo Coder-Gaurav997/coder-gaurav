@@ -69,8 +69,9 @@ const NutshellSection = () => {
             },
             knowsAbout: ["Python", "C", "Artificial Intelligence", "Cybersecurity"],
             founder: {
-              "@type": "Organization",
+              "@type": "Corporation",
               name: "DarkNeuronAI",
+              foundingDate: "2025",
             },
             jobTitle: "AI Developer & Founder",
           }),

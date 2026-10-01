@@ -13,6 +13,9 @@ interface BlogPost {
   thumbnail: string;
 }
 
+const MEDIUM_PROFILE_URL = "https://medium.com/@gaurav-pandey97";
+const MEDIUM_FEED_URL = `${MEDIUM_PROFILE_URL.replace("medium.com/", "medium.com/feed/")}`;
+
 const Blogs = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +25,7 @@ const Blogs = () => {
     const fetchBlogs = async () => {
       try {
         const res = await fetch(
-          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@golupandey95207&_=${Date.now()}`,
+          `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED_URL)}&_=${Date.now()}`,
           { cache: "no-store" }
         );
         const data = await res.json();
@@ -68,7 +71,7 @@ const Blogs = () => {
               My Writings
             </h1>
             <p className="text-muted-foreground mb-12">
-              Thoughts on AI, tech, and the future — from my Medium account.
+              All my thoughts on AI, technology, and the future — directly from my Medium account.
             </p>
           </motion.div>
 
