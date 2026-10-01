@@ -25,7 +25,7 @@ const Blogs = () => {
     const fetchBlogs = async () => {
       try {
         const res = await fetch(
-          `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED_URL)}&count=100&_=${Date.now()}`,
+          `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED_URL)}&_=${Date.now()}`,
           { cache: "no-store" }
         );
         const data = await res.json();
