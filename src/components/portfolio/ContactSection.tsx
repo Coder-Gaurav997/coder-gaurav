@@ -47,14 +47,14 @@ const ContactSection = () => {
           >
             // CONTACT
           </motion.p>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">Get In Touch</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">Let's Connect</h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-muted-foreground mt-4 max-w-md mx-auto"
           >
-            Got a project idea? Want to collaborate? Let's connect and build something extraordinary.
+            Have an idea or want to work together? Get in touch and let's make something meaningful.
           </motion.p>
         </motion.div>
 
@@ -74,7 +74,7 @@ const ContactSection = () => {
                 transition: { type: "spring", stiffness: 300, damping: 15 },
               }}
               whileTap={{ scale: 0.98 }}
-              className="glass rounded-2xl flex items-center gap-4 p-5 transition-colors duration-300 group"
+              className="glass rounded-2xl flex min-w-0 items-center gap-3 sm:gap-4 p-4 sm:p-5 transition-colors duration-300 group"
             >
               <motion.div
                 className="p-3 rounded-xl glass-strong text-primary"
@@ -83,9 +83,9 @@ const ContactSection = () => {
               >
                 <item.icon className="text-primary" size={22} />
               </motion.div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs text-muted-foreground font-mono">{item.label}</p>
-                <p className="text-foreground font-medium text-sm">{item.value}</p>
+                <p className="break-all text-xs sm:text-sm text-foreground font-medium">{item.value}</p>
               </div>
             </motion.a>
           ))}

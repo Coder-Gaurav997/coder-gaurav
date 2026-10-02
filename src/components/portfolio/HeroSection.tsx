@@ -13,7 +13,7 @@ const FadingRoles = () => {
   }, []);
 
   return (
-    <span className="relative px-5 py-1.5 border border-glow rounded-full text-sm font-mono text-primary/90 box-glow inline-flex items-center min-w-[240px] justify-center overflow-hidden">
+    <span className="relative max-w-full min-w-0 px-3 sm:px-5 py-1.5 border border-glow rounded-full text-xs sm:text-sm font-mono text-primary/90 box-glow inline-flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[index]}
@@ -99,7 +99,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.15em] uppercase">
-            &gt; Booting Up A Young Genius_
+            &gt; A Young Mind Building What's Next_
           </p>
         </motion.div>
 
@@ -107,7 +107,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-hero text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 whitespace-nowrap tracking-tight leading-[0.95]"
+          className="font-hero text-3xl min-[390px]:text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 whitespace-nowrap leading-[0.95]"
         >
           <span className="gradient-text">Gaurav</span>{" "}
           <span className="gradient-text">Pandey</span>
@@ -135,11 +135,11 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-3xl mx-auto mb-12 text-center"
         >
-          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed whitespace-nowrap overflow-hidden">
-            Teen architect of <span className="text-foreground font-semibold">thinking machines</span> — where AI meets security.
+          <p className="text-xs sm:text-sm md:text-lg text-muted-foreground leading-relaxed">
+            Exploring <span className="text-foreground font-semibold">intelligent systems</span> where AI meets digital security.
           </p>
-          <p className="text-sm md:text-lg mt-2">
-            <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> <span className="text-muted-foreground">— where ideas learn to think.</span>
+          <p className="text-xs sm:text-sm md:text-lg mt-2">
+            <span className="text-primary font-semibold">Founder of DarkNeuronAI</span> <span className="text-muted-foreground">— shaping ideas into intelligent tools.</span>
           </p>
         </motion.div>
 
@@ -147,11 +147,11 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="flex justify-center gap-4"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4"
         >
           <motion.button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base glass-strong text-primary font-semibold rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.25)]"
+            className="px-4 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3 text-xs sm:text-sm md:text-base glass-strong text-primary font-semibold rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.25)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -159,7 +159,7 @@ const HeroSection = () => {
           </motion.button>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base glass text-foreground rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--accent)/0.4)]"
+            className="px-4 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3 text-xs sm:text-sm md:text-base glass text-foreground rounded-xl transition-shadow duration-300 hover:shadow-[0_0_25px_hsl(var(--accent)/0.4)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

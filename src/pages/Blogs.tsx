@@ -56,9 +56,9 @@ const Blogs = () => {
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 font-mono text-sm"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 font-mono text-xs sm:text-sm"
           >
-            <ArrowLeft size={16} /> Back to Home
+            <ArrowLeft size={16} /> Return Home
           </Link>
 
           <motion.div
@@ -66,12 +66,12 @@ const Blogs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-primary text-sm mb-2 tracking-widest">// BLOGS</p>
-            <h1 className="text-4xl md:text-5xl font-bold gradient-text inline-block mb-4">
-              My Writings
+            <p className="font-mono text-primary text-xs sm:text-sm mb-2 tracking-widest">// BLOGS</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block mb-4">
+              Articles & Ideas
             </h1>
-            <p className="text-muted-foreground mb-12">
-              All my thoughts on AI, technology, and the future — directly from my Medium account.
+            <p className="text-sm sm:text-base text-muted-foreground mb-12">
+              My latest writing on AI, technology, and what comes next, from Medium.
             </p>
           </motion.div>
 
@@ -86,7 +86,7 @@ const Blogs = () => {
               ))}
             </div>
           ) : posts.length === 0 ? (
-            <p className="text-muted-foreground text-center py-20">No blog posts found.</p>
+            <p className="text-muted-foreground text-center py-20">There are no articles to show right now.</p>
           ) : (
             <div className="space-y-6">
               {posts.map((post, i) => (
@@ -98,14 +98,14 @@ const Blogs = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="block p-6 rounded-xl border border-glow bg-card box-glow hover:border-primary/50 hover:scale-[1.01] transition-all duration-300 group"
+                  className="block p-4 sm:p-6 rounded-xl border border-glow bg-card box-glow hover:border-primary/50 hover:scale-[1.01] transition-all duration-300 group"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2 break-words">
                         {post.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm mb-3">{post.description}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground mb-3">{post.description}</p>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
                         <Calendar size={12} />
                         {new Date(post.pubDate).toLocaleDateString("en-US", {

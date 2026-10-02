@@ -3,10 +3,10 @@ import { useRef } from "react";
 import { Brain, Code, Shield, Rocket } from "lucide-react";
 
 const highlights = [
-  { icon: Brain, label: "AI / ML", desc: "Building intelligent systems with DarkNeuronAI" },
-  { icon: Code, label: "Python & C", desc: "Crafting efficient, production-grade code" },
-  { icon: Shield, label: "Cybersecurity", desc: "Deep knowledge of ethical hacking & security" },
-  { icon: Rocket, label: "Founder", desc: "Leading DarkNeuronAI — an AI-focused company" },
+  { icon: Brain, label: "AI / ML", desc: "Developing intelligent tools with DarkNeuronAI" },
+  { icon: Code, label: "Python & C", desc: "Writing efficient software, from idea to release" },
+  { icon: Shield, label: "Cybersecurity", desc: "Exploring ethical hacking and digital defense" },
+  { icon: Rocket, label: "Founder", desc: "Building an AI company at DarkNeuronAI" },
 ];
 
 const cardVariants = {
@@ -54,24 +54,24 @@ const AboutSection = () => {
           >
             // ABOUT ME
           </motion.p>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">Who Am I?</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">A Little About Me</h2>
         </motion.div>
 
-        <div className="glass rounded-3xl p-8 md:p-12 mb-10">
+          <div className="glass rounded-3xl p-5 sm:p-8 md:p-12 mb-10">
           <div className="max-w-3xl mx-auto">
-            <div className="space-y-5 text-muted-foreground leading-relaxed text-base md:text-lg">
+            <div className="space-y-5 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
               {[
                 <>
-                  Hello — I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher and entrepreneur engineering at the intersection of <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span> and <span className="text-primary">cybersecurity</span>.
+                  I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher, and entrepreneur working across <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span>, and <span className="text-primary">cybersecurity</span>.
                 </>,
                 <>
-                  As the <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead the design and development of intelligent products — turning research-grade ideas into reliable, production-ready systems used in the real world.
+                  As <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I guide the creation of intelligent products, bringing ambitious research ideas into practical, dependable systems.
                 </>,
                 <>
-                  My craft spans low-level <span className="text-primary">C</span> internals, high-velocity <span className="text-primary">Python</span> engineering, and offensive-security mindset — a combination I use to ship software that is fast, secure and quietly powerful.
+                  My work ranges from low-level <span className="text-primary">C</span> to rapid <span className="text-primary">Python</span> development and security-minded design, helping me build software that is capable, efficient, and resilient.
                 </>,
                 <>
-                  I believe great technology is built by curious minds who refuse to stop at "good enough". Every line of code I write is an attempt to make the next version of the future a little more inevitable.
+                  I believe meaningful technology comes from curiosity and a willingness to keep improving. Every project is a chance to turn a promising idea into something useful.
                 </>,
               ].map((content, i) => (
                 <motion.p

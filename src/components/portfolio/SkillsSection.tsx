@@ -64,7 +64,7 @@ const SkillsSection = () => {
           >
             // SKILLS
           </motion.p>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">My Arsenal</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">My Skill Set</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -75,7 +75,7 @@ const SkillsSection = () => {
             className="glass rounded-3xl p-6 md:p-8"
           >
             <h3 className="text-sm font-mono text-primary mb-1 tracking-[0.25em] uppercase">&gt; Technical</h3>
-            <p className="text-xl md:text-2xl font-bold text-foreground mb-6">Tools I Build With</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-6">Tools I Build With</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {techSkills.map((skill, i) => {
                 const isLastOdd = i === techSkills.length - 1 && techSkills.length % 2 === 1;
@@ -100,7 +100,7 @@ const SkillsSection = () => {
             className="glass rounded-3xl p-6 md:p-8"
           >
             <h3 className="text-sm font-mono text-accent mb-1 tracking-[0.25em] uppercase">&gt; Professional</h3>
-            <p className="text-xl md:text-2xl font-bold text-foreground mb-6">How I Operate</p>
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-6">How I Work</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {professionalSkills.map((skill, i) => {
                 const isLastOdd = i === professionalSkills.length - 1 && professionalSkills.length % 2 === 1;

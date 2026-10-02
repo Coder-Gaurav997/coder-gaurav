@@ -12,44 +12,44 @@ interface Project {
   link: string;
 }
 
-const CODEVAULT_URL = "https://my-codevault.vercel.app";
+const GITHUB_URL = "https://github.com/Coder-Gaurav997";
 
 const SPECIAL_PROJECTS: Project[] = [
   {
     name: "Scout",
     work: "Autonomous research and report generation",
-    about: "An intelligent DarkNeuronAI agent that researches topics independently, organizes reliable findings, and turns them into clear, structured reports.",
-    link: CODEVAULT_URL,
+    about: "A DarkNeuronAI agent that explores topics, organizes useful findings, and delivers clear, structured reports.",
+    link: GITHUB_URL,
   },
   {
     name: "Zentrix",
     work: "Custom programming language",
-    about: "A programming language built in Python to explore lexical analysis, parsing, interpreters, and the foundations of language design.",
-    link: "https://my-codevault.vercel.app/projects/b9279d5d-4fae-440e-ac2f-315735f25948",
+    about: "A Python-built language project covering tokenization, parsing, interpretation, and the core ideas behind language design.",
+    link: GITHUB_URL,
   },
   {
     name: "AKRO",
     work: "Encryption algorithm",
-    about: "A lightweight Python encryption and obfuscation system that protects text through ASCII transformations and a custom key-based cipher.",
-    link: "https://my-codevault.vercel.app/projects/62644e7a-77c4-4eac-928a-bc2cfa0d7550",
+    about: "A compact Python encryption and obfuscation tool that transforms text with ASCII operations and a custom key-based cipher.",
+    link: GITHUB_URL,
   },
   {
     name: "Rudraksha",
     work: "Personal AI Telegram assistant",
-    about: "A conversational Telegram assistant that answers questions, supports everyday tasks, and delivers useful AI capabilities inside chat.",
-    link: "https://my-codevault.vercel.app/projects/cbdf480d-e414-4e6d-bf72-1c1b79b81eea",
+    about: "A Telegram-based AI companion for answering questions, helping with everyday tasks, and bringing useful tools into chat.",
+    link: GITHUB_URL,
   },
   {
     name: "Jarvis",
     work: "AI assistant for PC",
-    about: "A desktop-focused AI assistant designed to understand commands, automate common computer tasks, and make everyday workflows faster.",
-    link: CODEVAULT_URL,
+    about: "A PC assistant built to interpret commands, automate routine tasks, and streamline everyday computer workflows.",
+    link: GITHUB_URL,
   },
   {
     name: "Cosmo",
     work: "All-rounder AI Telegram bot",
-    about: "A versatile Telegram bot that combines intelligent conversation, practical utilities, and quick assistance in one accessible interface.",
-    link: CODEVAULT_URL,
+    about: "A flexible Telegram bot bringing AI conversation, handy utilities, and quick support together in one place.",
+    link: GITHUB_URL,
   },
 ];
 
@@ -65,9 +65,9 @@ const Projects = () => {
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 font-mono text-sm"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 font-mono text-xs sm:text-sm"
           >
-            <ArrowLeft size={16} /> Back to Home
+            <ArrowLeft size={16} /> Return Home
           </Link>
 
           <motion.div
@@ -75,12 +75,12 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-primary text-sm mb-2 tracking-widest">// PROJECTS</p>
-            <h1 className="text-4xl md:text-5xl font-bold gradient-text inline-block mb-4">
-              My Projects
+            <p className="font-mono text-primary text-xs sm:text-sm mb-2 tracking-widest">// PROJECTS</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block mb-4">
+              Selected Projects
             </h1>
-            <p className="text-muted-foreground mb-12">
-              My special projects — from autonomous AI agents to language design, encryption, and intelligent assistants.
+            <p className="text-sm sm:text-base text-muted-foreground mb-12">
+              A collection of work across autonomous AI, programming languages, encryption, and digital assistants.
             </p>
           </motion.div>
 
@@ -92,14 +92,14 @@ const Projects = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   whileHover={{ scale: 1.02 }}
-                  className="glass p-6 rounded-xl hover:border-primary/50 transition-colors duration-300"
+                  className="glass p-4 sm:p-6 rounded-xl hover:border-primary/50 transition-colors duration-300"
                 >
                   <div className="flex items-start gap-3">
                     <FolderGit2 className="text-primary shrink-0 mt-0.5" size={20} />
-                    <div>
+                    <div className="min-w-0">
                       <h3 className="font-bold text-foreground mb-1">{project.name}</h3>
-                      <p className="text-primary text-xs font-mono mb-2">{project.work}</p>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{project.about}</p>
+                      <p className="text-primary text-[11px] sm:text-xs font-mono mb-2 break-words">{project.work}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">{project.about}</p>
                       <a
                         href={project.link}
                         target="_blank"
@@ -120,15 +120,15 @@ const Projects = () => {
             transition={{ delay: 0.5 }}
             className="text-center"
           >
-            <h3 className="text-xl font-bold text-foreground mb-4">Many more projects...</h3>
-            <p className="text-muted-foreground text-sm mb-6">See all projects in detail on CodeVault</p>
+            <h3 className="text-xl font-bold text-foreground mb-4">Explore more of my work</h3>
+            <p className="text-muted-foreground text-sm mb-6">Browse my repositories and projects on GitHub.</p>
             <a
-              href={CODEVAULT_URL}
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg box-glow hover:scale-105 transition-transform duration-200"
             >
-              Visit CodeVault <ExternalLink size={16} />
+              Visit GitHub <ExternalLink size={16} />
             </a>
           </motion.div>
         </div>
