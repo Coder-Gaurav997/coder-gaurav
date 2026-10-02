@@ -1,0 +1,5 @@
+- [ ] Connect Scout popup button to the supplied Scout URL.
+- [ ] Replace CodeVault references and project links with Gaurav's GitHub account.
+- [ ] Lightly refresh public-facing site copy while preserving its meaning and requirements.
+- [ ] Improve mobile layouts and slightly reduce mobile text sizing to prevent clipping.
+- [ ] Verify the updated site in the preview and check the current build log.
