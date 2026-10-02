@@ -35,18 +35,18 @@ const NutshellSection = () => {
     { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", prop: "name", valueProp: "name" },
     { icon: Calendar, label: "Age", value: `${age} years`, prop: undefined, valueProp: undefined },
     { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", prop: undefined, valueProp: "birthDate" },
-    { icon: MapPin, label: "Place of Living", value: "Mathura, U.P (India)", prop: undefined, valueProp: "homeLocation" },
-    { icon: Code, label: "Skills", value: "Python, C, AI, Cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
+    { icon: MapPin, label: "Based In", value: "Mathura, U.P. (India)", prop: undefined, valueProp: "homeLocation" },
+    { icon: Code, label: "Focus Areas", value: "Python, C, AI, cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
     { icon: Rocket, label: "Founder", value: "DarkNeuronAI", prop: undefined, valueProp: "affiliation" },
   ];
 
   const projects = [
-    { name: "Scout", desc: "Autonomous research & report gen agent" },
+    { name: "Scout", desc: "Autonomous research and report-writing agent" },
     { name: "Zentrix", desc: "My own programming language" },
     { name: "AKRO", desc: "Encryption algorithm" },
-    { name: "Rudraksha", desc: "Personal AI Telegram assistant" },
+    { name: "Rudraksha", desc: "Personal AI assistant for Telegram" },
     { name: "Jarvis", desc: "AI assistant on PC" },
-    { name: "Cosmo", desc: "All-rounder AI Telegram bot" },
+    { name: "Cosmo", desc: "Versatile AI-powered Telegram bot" },
   ];
 
   return (
@@ -89,7 +89,7 @@ const NutshellSection = () => {
             initial={{ opacity: 0, letterSpacing: "0.5em" }}
             animate={inView ? { opacity: 1, letterSpacing: "0.2em" } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-mono text-primary text-sm mb-2"
+            className="font-mono text-primary text-xs sm:text-sm mb-2"
           >
             // QUICK OVERVIEW
           </motion.p>
@@ -111,13 +111,13 @@ const NutshellSection = () => {
                 key={item.label}
                 variants={itemVariants}
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="flex items-center gap-3 py-3"
+            className="flex flex-wrap items-center gap-x-3 gap-y-1 py-3"
               >
                 <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
                   <item.icon className="text-primary shrink-0" size={18} />
                 </motion.div>
-                <span className="text-muted-foreground text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
-                <span className="text-foreground font-semibold text-sm ml-auto text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
+                <span className="text-muted-foreground text-xs sm:text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
+                <span className="w-full pl-7 text-left text-xs sm:text-sm text-foreground font-semibold break-words sm:w-auto sm:ml-auto sm:pl-0 sm:text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -152,11 +152,11 @@ const NutshellSection = () => {
                   key={p.name}
                   variants={itemVariants}
                   whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                  className="flex items-baseline gap-2 p-3 rounded-lg glass"
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 p-3 rounded-lg glass"
                 >
                   <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
                   <strong className="text-primary font-semibold text-sm">{p.name}</strong>
-                  <span className="text-muted-foreground text-xs">— {p.desc}</span>
+                  <span className="text-muted-foreground text-xs break-words">— {p.desc}</span>
                 </motion.li>
               ))}
             </motion.ul>

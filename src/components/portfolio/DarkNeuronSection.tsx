@@ -82,15 +82,15 @@ const DarkNeuronSection = () => {
               <Sparkles className="text-primary" size={18} />
             </motion.div>
             <h3 className="text-lg md:text-xl font-semibold text-foreground tracking-tight">
-              Where neurons learn to think — and think faster.
+              Smarter neural systems, designed to work efficiently.
             </h3>
           </div>
           <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-center">
             <p>
-              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development company, founded in 2025, building smart neural-network solutions to tackle real-world business and technical problems.
+              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development company founded in 2025. We create neural-network solutions for real business and technical challenges.
             </p>
             <p>
-              Our mission is to make advanced AI <span className="text-foreground font-semibold">accessible, efficient and ethical</span> — engineering models that think faster, cost less to run and respect the data they learn from.
+              Our goal is to make advanced AI <span className="text-foreground font-semibold">accessible, efficient, and responsible</span> through models that process quickly, use fewer resources, and protect the data they handle.
             </p>
           </div>
         </motion.div>

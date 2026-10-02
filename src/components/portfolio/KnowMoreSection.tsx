@@ -7,19 +7,19 @@ const tabs = [
   {
     icon: FileText,
     title: "Blogs",
-    desc: "Read my thoughts on AI, coding, and tech",
+    desc: "Ideas and notes on AI, programming, and technology",
     href: "/blogs",
   },
   {
     icon: FolderGit2,
     title: "My Projects",
-    desc: "Explore the projects I've built and contributed to",
+    desc: "Projects I've designed, developed, and explored",
     href: "/projects",
   },
   {
     icon: Clock,
     title: "My Timeline",
-    desc: "See my journey from first line of code to founding DarkNeuronAI",
+    desc: "Milestones from my first code to DarkNeuronAI",
     href: "/timeline",
   },
 ];
@@ -57,12 +57,12 @@ const KnowMoreSection = () => {
             initial={{ opacity: 0, letterSpacing: "0.5em" }}
             animate={inView ? { opacity: 1, letterSpacing: "0.2em" } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-mono text-primary text-sm mb-2"
+            className="font-mono text-primary text-xs sm:text-sm mb-2"
           >
             // EXPLORE
           </motion.p>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text inline-block">
-            Want To Know More?
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">
+            Explore More
           </h2>
         </motion.div>
 
@@ -83,20 +83,20 @@ const KnowMoreSection = () => {
               <Link
                 to={tab.href}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="glass rounded-2xl p-6 md:p-7 flex items-center gap-5 group transition-all duration-300 hover:border-primary/40"
+                className="glass rounded-2xl p-4 sm:p-6 md:p-7 flex items-center gap-3 sm:gap-5 group transition-all duration-300 hover:border-primary/40"
               >
                 <motion.div
                   whileHover={{ rotate: [0, -12, 12, 0], scale: 1.15 }}
                   transition={{ duration: 0.4 }}
-                  className="shrink-0 w-14 h-14 rounded-xl glass-strong flex items-center justify-center"
+                  className="shrink-0 w-11 h-11 sm:w-14 sm:h-14 rounded-xl glass-strong flex items-center justify-center"
                 >
-                  <tab.icon className="text-primary" size={26} />
+                  <tab.icon className="text-primary" size={22} />
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-200">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-200">
                     {tab.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">{tab.desc}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{tab.desc}</p>
                 </div>
                 <span className="hidden sm:inline-flex items-center gap-1.5 text-primary text-sm font-mono shrink-0 px-3 py-1.5 rounded-lg glass-strong transition-all duration-300 group-hover:shadow-[0_0_18px_hsl(var(--primary)/0.5),0_0_40px_hsl(var(--accent)/0.25)] group-hover:text-foreground">
                   Explore <ArrowRight size={14} />

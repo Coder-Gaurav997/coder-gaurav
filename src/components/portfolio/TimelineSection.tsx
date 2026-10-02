@@ -5,32 +5,32 @@ import { Code, Shield, Wrench, Rocket, Zap } from "lucide-react";
 const milestones = [
   {
     year: "2024",
-    title: "Started with Python",
-    desc: "Began my coding journey by learning Python — the language that opened the door to programming.",
+    title: "My First Steps with Python",
+    desc: "Started learning Python, opening the door to programming and software creation.",
     icon: Code,
   },
   {
     year: "Mid 2024",
-    title: "Hacking & Cybersecurity",
-    desc: "Explored ethical hacking, cybersecurity fundamentals, and computer science concepts.",
+    title: "Cybersecurity & Computer Science",
+    desc: "Explored ethical hacking, security fundamentals, and broader computer science ideas.",
     icon: Shield,
   },
   {
     year: "2025",
-    title: "C & Advanced Programming",
-    desc: "Learned C language and dove into advanced programming concepts and low-level computing.",
+    title: "C and Deeper Programming",
+    desc: "Picked up C and advanced programming concepts, including low-level computing.",
     icon: Wrench,
   },
   {
     year: "Mid 2025",
     title: "Founded DarkNeuronAI",
-    desc: "Launched DarkNeuronAI — a platform to build and share intelligent AI tools and solutions.",
+    desc: "Founded DarkNeuronAI to develop and share intelligent AI products and solutions.",
     icon: Rocket,
   },
   {
     year: "2026",
-    title: "Built Major Projects",
-    desc: "Created Zentrix (custom programming language), AKRO (encryption algorithm), Rudraksha (AI assistant), and more.",
+    title: "Created New Projects",
+    desc: "Built Zentrix, a programming language; AKRO, an encryption algorithm; Rudraksha, an AI assistant; and more.",
     icon: Zap,
   },
 ];
@@ -48,9 +48,9 @@ const TimelineSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-primary text-sm mb-2 tracking-widest">// MY JOURNEY</p>
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text inline-block">
-            Timeline
+          <p className="font-mono text-primary text-xs sm:text-sm mb-2 tracking-widest">// MY JOURNEY</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">
+            Key Milestones
           </h2>
         </motion.div>
 
@@ -71,10 +71,10 @@ const TimelineSection = () => {
                 } flex-row`}
               >
                 {/* Content */}
-                <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
+                <div className={`ml-16 min-w-0 md:ml-0 md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
                   <span className="font-mono text-primary text-xs tracking-widest">{m.year}</span>
-                  <h3 className="text-foreground font-bold text-lg mt-1">{m.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{m.desc}</p>
+                  <h3 className="text-foreground font-bold text-base sm:text-lg mt-1 break-words">{m.title}</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm mt-1 leading-relaxed break-words">{m.desc}</p>
                 </div>
 
                 {/* Dot */}

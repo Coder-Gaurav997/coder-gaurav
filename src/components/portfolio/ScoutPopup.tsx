@@ -72,14 +72,15 @@ const ScoutPopup = () => {
                     DarkNeuronAI's Scout
                   </h3>
                   <p className="text-muted-foreground text-xs leading-relaxed mb-5">
-                    Autonomous research &amp; report generation AI agent.
+                    An AI agent for autonomous research and clear, structured reports.
                   </p>
 
                   <div className="h-px w-24 mx-auto mb-5 bg-gradient-to-r from-transparent via-border to-transparent" />
 
                   <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
+                    href="https://darkneuronai-scout.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="relative overflow-hidden flex items-center justify-center gap-1.5 w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-xs tracking-wide hover:shadow-[0_0_22px_hsl(var(--primary)/0.5),0_0_50px_hsl(var(--accent)/0.25)] transition-shadow duration-300 will-change-transform"
                   >
                     <span

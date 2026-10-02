@@ -14,11 +14,11 @@ const Footer = () => {
       className="py-8 px-6 border-t border-glow text-center"
     >
       <motion.p
-        className="text-muted-foreground text-sm font-mono whitespace-nowrap"
+        className="text-muted-foreground text-xs sm:text-sm font-mono"
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        &lt;&nbsp;Built with 💚 by <span className="text-primary">Gaurav Pandey</span>&nbsp;&gt;
+        &lt;&nbsp;Made with 💚 by <span className="text-primary">Gaurav Pandey</span>&nbsp;&gt;
       </motion.p>
     </motion.footer>
   );
