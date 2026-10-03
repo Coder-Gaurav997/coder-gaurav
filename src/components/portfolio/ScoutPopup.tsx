@@ -69,7 +69,7 @@ const ScoutPopup = () => {
                   </p>
 
                   <h3 className="text-lg font-bold gradient-text inline-block mb-2 leading-snug">
-                    DarkNeuronAI's Scout
+                    DarkNeuronAI Scout
                   </h3>
                   <p className="text-muted-foreground text-xs leading-relaxed mb-5">
                     Turn a question into focused research and a structured report—autonomously.
