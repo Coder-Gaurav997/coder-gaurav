@@ -122,14 +122,14 @@ const NutshellSection = () => {
                 key={item.label}
                 variants={itemVariants}
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="flex items-center justify-between gap-3 py-3 sm:py-3.5 min-w-0"
+                className="flex flex-col items-start gap-y-1 py-3 sm:py-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3 min-w-0"
               >
                 <div className="flex items-center gap-3 shrink-0">
                   <item.icon className="text-primary shrink-0" size={17} aria-hidden="true" />
                   <span className="text-muted-foreground text-xs sm:text-sm font-mono">{item.label}</span>
                 </div>
                 <span
-                  className="text-right text-xs sm:text-sm text-foreground font-semibold break-words min-w-0 sm:max-w-[60%]"
+                  className="text-left sm:text-right text-xs sm:text-sm text-foreground font-semibold break-words min-w-0 sm:max-w-[60%]"
                   itemProp={item.valueProp || undefined}
                 >
                   {item.value}
