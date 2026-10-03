@@ -5,17 +5,16 @@ import { User, Calendar, MapPin, Code, Rocket, Sparkles } from "lucide-react";
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.2 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+    transition: { duration: 0.35, ease: "easeOut" as const },
   },
 };
 
@@ -32,12 +31,12 @@ const NutshellSection = () => {
   })();
 
   const info = [
-    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", prop: "name", valueProp: "name" },
-    { icon: Calendar, label: "Age", value: `${age} years`, prop: undefined, valueProp: undefined },
-    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", prop: undefined, valueProp: "birthDate" },
-    { icon: MapPin, label: "Based In", value: "Mathura, U.P. (India)", prop: undefined, valueProp: "homeLocation" },
-    { icon: Code, label: "Focus Areas", value: "Python, C, AI, cybersecurity & more", prop: undefined, valueProp: "knowsAbout" },
-    { icon: Rocket, label: "Founder", value: "DarkNeuronAI", prop: undefined, valueProp: "affiliation" },
+    { icon: User, label: "Name", value: "Gaurav Pandey (Mr. Def@ult)", valueProp: "name" },
+    { icon: Calendar, label: "Age", value: `${age} years`, valueProp: undefined },
+    { icon: Calendar, label: "Date of Birth", value: "13 March, 2010", valueProp: "birthDate" },
+    { icon: MapPin, label: "Based In", value: "Mathura, U.P. (India)", valueProp: "homeLocation" },
+    { icon: Code, label: "Focus Areas", value: "Python, C, AI, cybersecurity & more", valueProp: "knowsAbout" },
+    { icon: Rocket, label: "Founder", value: "DarkNeuronAI", valueProp: "affiliation" },
   ];
 
   const projects = [
@@ -50,7 +49,7 @@ const NutshellSection = () => {
   ];
 
   return (
-    <section id="nutshell" className="py-24 px-6 relative" aria-label="About Gaurav Pandey in a nutshell" itemScope itemType="https://schema.org/Person">
+    <section id="nutshell" className="py-20 md:py-24 px-4 sm:px-6 relative" aria-label="About Gaurav Pandey in a nutshell" itemScope itemType="https://schema.org/Person">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -83,7 +82,6 @@ const NutshellSection = () => {
               url: "https://darkneuron-ai.vercel.app/",
             },
             jobTitle: "AI Developer & Founder",
-            description: "Gaurav Pandey, also known as Mr. Def@ult, is a Python and C developer from Mathura, India. He works across artificial intelligence, computer science, and cybersecurity, and founded the AI research and development company DarkNeuronAI in 2025.",
           }),
         }}
       />
@@ -93,7 +91,7 @@ const NutshellSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
         >
           <motion.p
             initial={{ opacity: 0, letterSpacing: "0.5em" }}
@@ -101,17 +99,17 @@ const NutshellSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-mono text-primary text-xs sm:text-sm mb-2"
           >
-            // QUICK OVERVIEW
+            {"// QUICK OVERVIEW"}
           </motion.p>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text inline-block">
             About Me In a Nutshell
           </h2>
         </motion.div>
 
-        <div className="glass rounded-3xl p-6 md:p-10">
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed text-center mb-6" itemProp="description">
-            Gaurav Pandey, also known as Mr. Def@ult, is a Python and C developer from Mathura, India. He explores artificial intelligence, computer science, and cybersecurity, and founded the AI research and development company DarkNeuronAI in 2025.
-          </p>
+        <div className="glass rounded-3xl p-5 sm:p-8 md:p-10 relative overflow-hidden">
+          {/* subtle top glow line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
           {/* Info Rows */}
           <motion.div
             variants={containerVariants}
@@ -124,13 +122,18 @@ const NutshellSection = () => {
                 key={item.label}
                 variants={itemVariants}
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-            className="flex flex-wrap items-center gap-x-3 gap-y-1 py-3"
+                className="flex items-center justify-between gap-3 py-3 sm:py-3.5 min-w-0"
               >
-                <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <item.icon className="text-primary shrink-0" size={18} />
-                </motion.div>
-                <span className="text-muted-foreground text-xs sm:text-sm font-mono">{item.label}</span>
-                <span className="w-full pl-7 text-left text-xs sm:text-sm text-foreground font-semibold break-words sm:w-auto sm:ml-auto sm:pl-0 sm:text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
+                <div className="flex items-center gap-3 shrink-0">
+                  <item.icon className="text-primary shrink-0" size={17} aria-hidden="true" />
+                  <span className="text-muted-foreground text-xs sm:text-sm font-mono">{item.label}</span>
+                </div>
+                <span
+                  className="text-right text-xs sm:text-sm text-foreground font-semibold break-words min-w-0 sm:max-w-[60%]"
+                  itemProp={item.valueProp || undefined}
+                >
+                  {item.value}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -139,17 +142,17 @@ const NutshellSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className="mt-8 pt-6 border-t border-border/30"
           >
             <motion.div
               className="flex items-center gap-2 mb-4"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.35 }}
             >
-              <motion.div animate={inView ? { rotate: [0, 15, -15, 0] } : {}} transition={{ delay: 0.6, duration: 0.5 }}>
-                <Sparkles className="text-primary" size={18} />
+              <motion.div animate={inView ? { rotate: [0, 15, -15, 0] } : {}} transition={{ delay: 0.5, duration: 0.5 }}>
+                <Sparkles className="text-primary" size={18} aria-hidden="true" />
               </motion.div>
               <h3 className="font-bold text-foreground text-lg">Special Projects</h3>
             </motion.div>
@@ -165,13 +168,15 @@ const NutshellSection = () => {
                   key={p.name}
                   variants={itemVariants}
                   whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 p-3 rounded-lg glass"
+                  className="flex items-baseline gap-x-2 p-3 rounded-lg glass min-w-0"
                   itemScope
                   itemType="https://schema.org/CreativeWork"
                 >
-                  <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
-                  <strong className="text-primary font-semibold text-sm" itemProp="name">{p.name}</strong>
-                  <span className="text-muted-foreground text-xs break-words" itemProp="description">— {p.desc}</span>
+                  <span className="text-primary font-mono text-xs shrink-0" aria-hidden="true">▸</span>
+                  <span className="min-w-0">
+                    <strong className="text-primary font-semibold text-sm" itemProp="name">{p.name}</strong>
+                    <span className="block text-muted-foreground text-xs break-words" itemProp="description">{p.desc}</span>
+                  </span>
                 </motion.li>
               ))}
             </motion.ul>
