@@ -1,5 +1,10 @@
-- [ ] Connect Scout popup button to the supplied Scout URL.
-- [ ] Replace CodeVault references and project links with Gaurav's GitHub account.
-- [ ] Lightly refresh public-facing site copy while preserving its meaning and requirements.
-- [ ] Improve mobile layouts and slightly reduce mobile text sizing to prevent clipping.
-- [ ] Verify the updated site in the preview and check the current build log.
+- [x] Connect Scout popup button to the supplied Scout URL.
+- [x] Replace CodeVault references and project links with Gaurav's GitHub account.
+- [x] Lightly refresh public-facing site copy while preserving its meaning and requirements.
+- [x] Improve mobile layouts and slightly reduce mobile text sizing to prevent clipping.
+- [x] Simplify the hero role animation and refine its introduction line.
+- [x] Load additional featured projects from Gaurav's public GitHub repositories.
+- [x] Add Scout to the late-2026 timeline.
+- [x] Make the Scout launch popup more professional while keeping it compact.
+- [x] Expand visible and structured profile details for search indexing.
+- [x] Verify the updated site in the preview and check the current build log.
