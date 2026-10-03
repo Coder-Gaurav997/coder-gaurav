@@ -33,6 +33,12 @@ const milestones = [
     desc: "Built Zentrix, a programming language; AKRO, an encryption algorithm; Rudraksha, an AI assistant; and more.",
     icon: Zap,
   },
+  {
+    year: "Late 2026",
+    title: "Built Scout AI Agent",
+    desc: "Created Scout, a DarkNeuronAI agent that autonomously researches topics and produces clear, structured reports.",
+    icon: Rocket,
+  },
 ];
 
 const TimelineSection = () => {

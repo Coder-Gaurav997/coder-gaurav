@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, FolderGit2, ArrowRight } from "lucide-react";
@@ -12,6 +12,15 @@ interface Project {
   link: string;
 }
 
+interface GitHubRepository {
+  name: string;
+  description: string | null;
+  html_url: string;
+  fork: boolean;
+  archived: boolean;
+  updated_at: string;
+}
+
 const GITHUB_URL = "https://github.com/Coder-Gaurav997";
 
 const SPECIAL_PROJECTS: Project[] = [
@@ -19,44 +28,88 @@ const SPECIAL_PROJECTS: Project[] = [
     name: "Scout",
     work: "Autonomous research and report generation",
     about: "A DarkNeuronAI agent that explores topics, organizes useful findings, and delivers clear, structured reports.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/DarkNeuronAI-Scout-AI-Agent",
   },
   {
     name: "Zentrix",
     work: "Custom programming language",
     about: "A Python-built language project covering tokenization, parsing, interpretation, and the core ideas behind language design.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/Zentrix-Programming-Langauge",
   },
   {
     name: "AKRO",
     work: "Encryption algorithm",
     about: "A compact Python encryption and obfuscation tool that transforms text with ASCII operations and a custom key-based cipher.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/AKRO-Encryption-Algorithm",
   },
   {
     name: "Rudraksha",
     work: "Personal AI Telegram assistant",
     about: "A Telegram-based AI companion for answering questions, helping with everyday tasks, and bringing useful tools into chat.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/Rudraksha-TG-ChatBot",
   },
   {
     name: "Jarvis",
     work: "AI assistant for PC",
     about: "A PC assistant built to interpret commands, automate routine tasks, and streamline everyday computer workflows.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/Jarvis-AI-Assistant",
   },
   {
     name: "Cosmo",
     work: "All-rounder AI Telegram bot",
     about: "A flexible Telegram bot bringing AI conversation, handy utilities, and quick support together in one place.",
-    link: GITHUB_URL,
+    link: "https://github.com/Coder-Gaurav997/Cosmo-Telegram-Bot",
   },
 ];
 
+const FEATURED_REPOSITORIES = [
+  "DarkNeuronAI-Website",
+  "RemoteX-TG-Bot",
+  "GhostShell-Desktop-ChatApp",
+  "Top-Python-Programs",
+  "codestats-py-Python-Library",
+  "The-Uncertainity-Algorithm-Book-PDF",
+  "DarkNeuron-SpamDex-v1",
+  "My-C-Projects",
+];
+
+const formatRepositoryName = (name: string) => name.replace(/-/g, " ");
+
 const Projects = () => {
+  const [githubProjects, setGithubProjects] = useState<Project[]>([]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
+
+    const controller = new AbortController();
+    fetch("https://api.github.com/users/Coder-Gaurav997/repos?per_page=100&sort=updated", {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("GitHub repositories could not be loaded");
+        return response.json() as Promise<GitHubRepository[]>;
+      })
+      .then((repositories) => {
+        const projects = repositories
+          .filter((repository) => !repository.fork && !repository.archived && FEATURED_REPOSITORIES.includes(repository.name))
+          .sort((a, b) => FEATURED_REPOSITORIES.indexOf(a.name) - FEATURED_REPOSITORIES.indexOf(b.name))
+          .map((repository) => ({
+            name: formatRepositoryName(repository.name),
+            work: "Open-source GitHub project",
+            about: repository.description || "Source code and development work from Gaurav Pandey's public GitHub portfolio.",
+            link: repository.html_url,
+          }));
+        setGithubProjects(projects);
+      })
+      .catch((error: unknown) => {
+        if (error instanceof Error && error.name !== "AbortError") console.error(error.message);
+      });
+
+    return () => controller.abort();
   }, []);
+
+  const projects = [...SPECIAL_PROJECTS, ...githubProjects];
 
   return (
     <div className="min-h-screen bg-background">
@@ -85,12 +138,12 @@ const Projects = () => {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-4 mb-12">
-              {SPECIAL_PROJECTS.map((project, i) => (
+              {projects.map((project, i) => (
                 <motion.div
                   key={project.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  transition={{ duration: 0.4, delay: Math.min(i * 0.06, 0.5) }}
                   whileHover={{ scale: 1.02 }}
                   className="glass p-4 sm:p-6 rounded-xl hover:border-primary/50 transition-colors duration-300"
                 >

@@ -68,12 +68,22 @@ const NutshellSection = () => {
               addressCountry: "IN",
             },
             knowsAbout: ["Python", "C", "Artificial Intelligence", "Cybersecurity"],
+            url: "https://coder-gaurav.lovable.app/",
+            sameAs: [
+              "https://github.com/Coder-Gaurav997",
+              "https://huggingface.co/DarkNeuron-AI",
+              "https://www.linkedin.com/in/gaurav-pandey-a9089b366",
+              "https://dev.to/mr_default722",
+              "https://medium.com/@gaurav-pandey97",
+            ],
             founder: {
               "@type": "Corporation",
               name: "DarkNeuronAI",
               foundingDate: "2025",
+              url: "https://darkneuron-ai.vercel.app/",
             },
             jobTitle: "AI Developer & Founder",
+            description: "Gaurav Pandey, also known as Mr. Def@ult, is a Python and C developer from Mathura, India. He works across artificial intelligence, computer science, and cybersecurity, and founded the AI research and development company DarkNeuronAI in 2025.",
           }),
         }}
       />
@@ -99,6 +109,9 @@ const NutshellSection = () => {
         </motion.div>
 
         <div className="glass rounded-3xl p-6 md:p-10">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed text-center mb-6" itemProp="description">
+            Gaurav Pandey, also known as Mr. Def@ult, is a Python and C developer from Mathura, India. He explores artificial intelligence, computer science, and cybersecurity, and founded the AI research and development company DarkNeuronAI in 2025.
+          </p>
           {/* Info Rows */}
           <motion.div
             variants={containerVariants}
@@ -116,7 +129,7 @@ const NutshellSection = () => {
                 <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
                   <item.icon className="text-primary shrink-0" size={18} />
                 </motion.div>
-                <span className="text-muted-foreground text-xs sm:text-sm font-mono" itemProp={item.prop || undefined}>{item.label}</span>
+                <span className="text-muted-foreground text-xs sm:text-sm font-mono">{item.label}</span>
                 <span className="w-full pl-7 text-left text-xs sm:text-sm text-foreground font-semibold break-words sm:w-auto sm:ml-auto sm:pl-0 sm:text-right" itemProp={item.valueProp || undefined}>{item.value}</span>
               </motion.div>
             ))}
@@ -153,10 +166,12 @@ const NutshellSection = () => {
                   variants={itemVariants}
                   whileHover={{ y: -2, transition: { duration: 0.2 } }}
                   className="flex flex-wrap items-baseline gap-x-2 gap-y-1 p-3 rounded-lg glass"
+                  itemScope
+                  itemType="https://schema.org/CreativeWork"
                 >
                   <span className="text-primary font-mono text-xs" aria-hidden="true">▸</span>
-                  <strong className="text-primary font-semibold text-sm">{p.name}</strong>
-                  <span className="text-muted-foreground text-xs break-words">— {p.desc}</span>
+                  <strong className="text-primary font-semibold text-sm" itemProp="name">{p.name}</strong>
+                  <span className="text-muted-foreground text-xs break-words" itemProp="description">— {p.desc}</span>
                 </motion.li>
               ))}
             </motion.ul>

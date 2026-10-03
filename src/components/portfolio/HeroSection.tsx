@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 
@@ -13,19 +13,16 @@ const FadingRoles = () => {
   }, []);
 
   return (
-    <span className="relative max-w-full min-w-0 px-3 sm:px-5 py-1.5 border border-glow rounded-full text-xs sm:text-sm font-mono text-primary/90 box-glow inline-flex items-center justify-center overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={roles[index]}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="inline-block"
-        >
-          {roles[index]}
-        </motion.span>
-      </AnimatePresence>
+    <span className="relative max-w-full min-w-0 px-3 sm:px-5 py-1.5 border border-glow rounded-full text-[11px] sm:text-sm font-mono text-primary/90 box-glow inline-flex items-center justify-center overflow-hidden">
+      <motion.span
+        key={roles[index]}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+        className="inline-block"
+      >
+        {roles[index]}
+      </motion.span>
     </span>
   );
 };
@@ -99,7 +96,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.15em] uppercase">
-            &gt; A Young Mind Building What's Next_
+            &gt; Engineering Intelligent Systems for What Comes Next_
           </p>
         </motion.div>
 

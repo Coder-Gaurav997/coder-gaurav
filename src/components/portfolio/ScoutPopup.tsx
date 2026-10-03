@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Radar, ArrowUpRight } from "lucide-react";
+import { X, Radar, ArrowUpRight, Search, FileText, Sparkles } from "lucide-react";
 
 const ScoutPopup = () => {
   const [show, setShow] = useState(false);
@@ -29,7 +29,7 @@ const ScoutPopup = () => {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="w-full max-w-[320px] rounded-[20px] p-px pointer-events-auto bg-gradient-to-br from-primary/60 via-border/60 to-accent/60 shadow-[0_24px_70px_-18px_hsl(240_50%_4%/0.65)]">
+            <div className="w-full max-w-[340px] rounded-[20px] p-px pointer-events-auto bg-gradient-to-br from-primary/60 via-border/60 to-accent/60 shadow-[0_24px_70px_-18px_hsl(240_50%_4%/0.65)]">
               <div className="relative rounded-[19px] glass-strong overflow-hidden">
                 {/* Shine sweep */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -63,7 +63,7 @@ const ScoutPopup = () => {
                     </div>
                   </div>
 
-                  <p className="flex items-center justify-center gap-1.5 font-mono text-primary text-[10px] tracking-[0.25em] mb-2">
+                  <p className="flex items-center justify-center gap-1.5 font-mono text-primary text-[10px] tracking-[0.2em] mb-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary anim-dot" />
                     NEW LAUNCH
                   </p>
@@ -72,10 +72,23 @@ const ScoutPopup = () => {
                     DarkNeuronAI's Scout
                   </h3>
                   <p className="text-muted-foreground text-xs leading-relaxed mb-5">
-                    An AI agent for autonomous research and clear, structured reports.
+                    Turn a question into focused research and a structured report—autonomously.
                   </p>
 
-                  <div className="h-px w-24 mx-auto mb-5 bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="grid grid-cols-3 gap-2 mb-5" aria-label="Scout capabilities">
+                    <div className="glass rounded-lg py-2 text-center">
+                      <Search className="mx-auto mb-1 text-primary" size={14} />
+                      <span className="text-[9px] text-muted-foreground">Research</span>
+                    </div>
+                    <div className="glass rounded-lg py-2 text-center">
+                      <Sparkles className="mx-auto mb-1 text-primary" size={14} />
+                      <span className="text-[9px] text-muted-foreground">Synthesize</span>
+                    </div>
+                    <div className="glass rounded-lg py-2 text-center">
+                      <FileText className="mx-auto mb-1 text-primary" size={14} />
+                      <span className="text-[9px] text-muted-foreground">Report</span>
+                    </div>
+                  </div>
 
                   <a
                     href="https://darkneuronai-scout.onrender.com/"
@@ -87,7 +100,7 @@ const ScoutPopup = () => {
                       className="pointer-events-none absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-foreground/15 to-transparent"
                       style={{ animation: "scout-shine 4.5s ease-in-out 2s infinite", willChange: "transform" }}
                     />
-                    Visit Scout <ArrowUpRight size={14} />
+                    Launch Scout <ArrowUpRight size={14} />
                   </a>
 
                   <button
