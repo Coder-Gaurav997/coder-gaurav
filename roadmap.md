@@ -7,4 +7,4 @@
 - [x] Add Scout to the late-2026 timeline.
 - [x] Make the Scout launch popup more professional while keeping it compact.
 - [x] Expand visible and structured profile details for search indexing.
-- [ ] Verify the updated site in the preview and check the current build log.
+- [x] Verify the updated site in the preview and check the current build log.
