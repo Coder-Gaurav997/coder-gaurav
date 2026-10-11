@@ -3,11 +3,11 @@ import { useRef } from "react";
 import { Code2, Cpu, Brain, ShieldCheck, Binary, Lightbulb, Users, MessageSquare, Sparkles, Target, Terminal, Workflow } from "lucide-react";
 
 const techSkills = [
-  { name: "Python", icon: Code2 },
-  { name: "C Programming", icon: Binary },
-  { name: "Artificial Intelligence", icon: Brain },
-  { name: "Cybersecurity", icon: ShieldCheck },
-  { name: "Computer Science", icon: Cpu },
+  { name: "Python", tag: "core lang", icon: Code2 },
+  { name: "C Programming", tag: "systems", icon: Binary },
+  { name: "Artificial Intelligence", tag: "AI / ML", icon: Brain },
+  { name: "Cybersecurity", tag: "security", icon: ShieldCheck },
+  { name: "Computer Science", tag: "fundamentals", icon: Cpu },
 ];
 
 const professionalSkills = [
