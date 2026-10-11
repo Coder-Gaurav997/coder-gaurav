@@ -8,3 +8,5 @@
 - [x] Make the Scout launch popup more professional while keeping it compact.
 - [x] Expand visible and structured profile details for search indexing.
 - [x] Verify the updated site in the preview and check the current build log.
+- [x] Remove the Scout launch popup from the site entirely.
+
