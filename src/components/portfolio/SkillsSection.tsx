@@ -100,7 +100,7 @@ const SkillsSection = () => {
                 <Terminal size={17} />
               </span>
               <div className="min-w-0">
-                <h3 className="text-[11px] font-mono text-primary tracking-[0.25em] uppercase">> Technical</h3>
+                <h3 className="text-[11px] font-mono text-primary tracking-[0.25em] uppercase">// Technical</h3>
                 <p className="text-base sm:text-lg font-bold text-foreground leading-tight">Tools I Build With</p>
               </div>
             </div>
