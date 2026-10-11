@@ -124,7 +124,7 @@ const SkillsSection = () => {
                 <Workflow size={17} />
               </span>
               <div className="min-w-0">
-                <h3 className="text-[11px] font-mono text-accent tracking-[0.25em] uppercase">> Professional</h3>
+                <h3 className="text-[11px] font-mono text-accent tracking-[0.25em] uppercase">// Professional</h3>
                 <p className="text-base sm:text-lg font-bold text-foreground leading-tight">How I Work</p>
               </div>
             </div>
