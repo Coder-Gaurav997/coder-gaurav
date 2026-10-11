@@ -42,7 +42,7 @@ const TechRow = ({ skill, index, delay, inView }: { skill: Skill; index: number;
       <span className="ml-auto pl-2 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider text-muted-foreground/70 group-hover:text-primary transition-colors duration-300 shrink-0 hidden min-[400px]:inline">
         {skill.tag}
       </span>
-      <Icon size={13} className="text-primary/50 group-hover:text-primary transition-colors duration-300 shrink-0 min-[400px]:hidden" />
+      <Icon size={13} className="ml-auto text-primary/50 group-hover:text-primary transition-colors duration-300 shrink-0 min-[400px]:hidden" />
     </motion.div>
   );
 };
