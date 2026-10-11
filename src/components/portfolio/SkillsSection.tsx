@@ -18,9 +18,9 @@ const professionalSkills = [
   { name: "Adaptability", icon: Sparkles },
 ];
 
-type Skill = { name: string; icon: typeof Code2 };
+type Skill = { name: string; tag?: string; icon: typeof Code2 };
 
-// Technical skills: numbered, full-width rows with a glowing left rail.
+// Technical skills: numbered, full-width rows with a glowing left rail and a side tag.
 const TechRow = ({ skill, index, delay, inView }: { skill: Skill; index: number; delay: number; inView: boolean }) => {
   const Icon = skill.icon;
   return (
@@ -29,7 +29,7 @@ const TechRow = ({ skill, index, delay, inView }: { skill: Skill; index: number;
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.5, ease: "easeOut", delay }}
       whileHover={{ x: 4 }}
-      className="glass-strong rounded-xl pl-3 pr-4 py-2.5 flex items-center gap-3 group relative overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_22px_hsl(var(--primary)/0.28)]"
+      className="glass-strong rounded-xl pl-3 pr-3 sm:pr-4 py-2.5 flex items-center gap-2.5 sm:gap-3 group relative overflow-hidden transition-shadow duration-300 hover:shadow-[0_0_22px_hsl(var(--primary)/0.28)]"
     >
       <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
       <span className="font-mono text-[10px] sm:text-xs text-primary/60 w-6 shrink-0">
@@ -39,6 +39,10 @@ const TechRow = ({ skill, index, delay, inView }: { skill: Skill; index: number;
         <Icon size={16} />
       </span>
       <span className="font-medium text-foreground text-xs sm:text-sm min-w-0 break-words">{skill.name}</span>
+      <span className="ml-auto pl-2 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider text-muted-foreground/70 group-hover:text-primary transition-colors duration-300 shrink-0 hidden min-[400px]:inline">
+        {skill.tag}
+      </span>
+      <Icon size={13} className="text-primary/50 group-hover:text-primary transition-colors duration-300 shrink-0 min-[400px]:hidden" />
     </motion.div>
   );
 };
