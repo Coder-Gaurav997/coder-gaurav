@@ -96,7 +96,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.1em] uppercase">
-            &gt; Engineering Intelligent Systems_
+            &gt; DESIGNING THE FUTURE OF INTELLIGENCE_
           </p>
         </motion.div>
 
