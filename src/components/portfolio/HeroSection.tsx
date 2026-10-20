@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, ChevronDown, Layers3, Rocket } from "lucide-react";
+import { BookOpen, Calendar, ChevronDown, Layers3, Rocket } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 
 const roles = ["Python Developer", "AI Founder", "Cybersecurity Enthusiast", "Creator of Zentrix", "Founder of DarkNeuronAI"];
@@ -11,7 +11,7 @@ const portfolioStats = [
   {
     label: "Age",
     value: `${new Date().getFullYear() - 2010 - (new Date() < new Date(new Date().getFullYear(), 2, 13) ? 1 : 0)}`,
-    icon: ChevronDown,
+    icon: Calendar,
     suffix: "years",
   },
 ];
