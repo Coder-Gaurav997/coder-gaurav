@@ -1,19 +1,15 @@
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, ChevronDown, Layers3, Rocket } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
+import { calculateAge, portfolioHighlights } from "@/lib/portfolio-stats";
 
 const roles = ["Python Developer", "AI Founder", "Cybersecurity Enthusiast", "Creator of Zentrix", "Founder of DarkNeuronAI"];
 
 const portfolioStats = [
-  { label: "Major Projects", value: "7+", icon: Rocket },
-  { label: "Books", value: "1+", icon: BookOpen },
-  { label: "Projects Built", value: "84+", icon: Layers3 },
-  {
-    label: "Age",
-    value: `${new Date().getFullYear() - 2010 - (new Date() < new Date(new Date().getFullYear(), 2, 13) ? 1 : 0)}`,
-    icon: Calendar,
-    suffix: "years",
-  },
+  { ...portfolioHighlights[0], icon: Rocket },
+  { ...portfolioHighlights[1], icon: BookOpen },
+  { ...portfolioHighlights[2], icon: Layers3 },
+  { label: "Age", value: String(calculateAge()), icon: Calendar, suffix: "years" },
 ];
 
 const FadingRoles = () => {
