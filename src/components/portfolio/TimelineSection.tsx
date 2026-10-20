@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code, Shield, Wrench, Rocket, Zap } from "lucide-react";
+import { Code, Shield, Wrench, Rocket, Zap, Brain, Lightbulb } from "lucide-react";
 
 const milestones = [
   {
@@ -16,16 +16,40 @@ const milestones = [
     icon: Shield,
   },
   {
-    year: "2025",
+    year: "Late 2024",
+    title: "Turning Concepts into Code",
+    desc: "Built confidence by applying programming fundamentals to practical, independent experiments.",
+    icon: Lightbulb,
+  },
+  {
+    year: "Early 2025",
     title: "C and Deeper Programming",
     desc: "Picked up C and advanced programming concepts, including low-level computing.",
     icon: Wrench,
+  },
+  {
+    year: "2025",
+    title: "Exploring AI Systems",
+    desc: "Connected programming and computer science foundations with ideas in artificial intelligence.",
+    icon: Brain,
   },
   {
     year: "Mid 2025",
     title: "Founded DarkNeuronAI",
     desc: "Founded DarkNeuronAI to develop and share intelligent AI products and solutions.",
     icon: Rocket,
+  },
+  {
+    year: "Late 2025",
+    title: "From Research to Product Ideas",
+    desc: "Focused on turning AI research into useful tools, with an emphasis on thoughtful, practical design.",
+    icon: Lightbulb,
+  },
+  {
+    year: "Early 2026",
+    title: "Building Across Different Fields",
+    desc: "Explored language design, encryption, and AI assistants through a growing set of personal projects.",
+    icon: Code,
   },
   {
     year: "2026",
@@ -68,7 +92,7 @@ const TimelineSection = () => {
             const isLeft = i % 2 === 0;
             return (
               <motion.div
-                key={m.year}
+                key={`${m.year}-${m.title}`}
                 initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}

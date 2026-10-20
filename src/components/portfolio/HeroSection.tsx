@@ -1,8 +1,20 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { BookOpen, ChevronDown, Layers3, Rocket } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 
 const roles = ["Python Developer", "AI Founder", "Cybersecurity Enthusiast", "Creator of Zentrix", "Founder of DarkNeuronAI"];
+
+const portfolioStats = [
+  { label: "Major Projects", value: "7+", icon: Rocket },
+  { label: "Books", value: "1+", icon: BookOpen },
+  { label: "Projects Built", value: "84+", icon: Layers3 },
+  {
+    label: "Age",
+    value: `${new Date().getFullYear() - 2010 - (new Date() < new Date(new Date().getFullYear(), 2, 13) ? 1 : 0)}`,
+    icon: ChevronDown,
+    suffix: "years",
+  },
+];
 
 const FadingRoles = () => {
   const [index, setIndex] = useState(0);
@@ -163,6 +175,20 @@ const HeroSection = () => {
             Get In Touch
           </motion.button>
         </motion.div>
+
+        <div className="mx-auto mt-7 grid w-full max-w-2xl grid-cols-2 gap-2.5 sm:mt-9 sm:grid-cols-4 sm:gap-3" aria-label="Portfolio highlights">
+          {portfolioStats.map(({ label, value, icon: Icon, suffix }) => (
+            <div key={label} className="glass-strong flex min-h-[76px] min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-left sm:min-h-[88px] sm:flex-col sm:items-center sm:justify-center sm:gap-1.5 sm:text-center">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg glass text-primary sm:h-7 sm:w-7">
+                <Icon size={15} aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-base font-bold leading-tight text-foreground sm:text-lg">{value}{suffix ? <span className="ml-1 text-[10px] font-medium text-muted-foreground sm:text-xs">{suffix}</span> : null}</span>
+                <span className="block break-words text-[10px] leading-tight text-muted-foreground sm:text-[11px]">{label}</span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Scroll indicator */}

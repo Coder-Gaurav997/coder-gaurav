@@ -9,4 +9,6 @@
 - [x] Expand visible and structured profile details for search indexing.
 - [x] Verify the updated site in the preview and check the current build log.
 - [x] Remove the Scout launch popup from the site entirely.
+- [ ] Extend the timeline with grounded intermediate milestones and add four compact hero stats.
+- [ ] Verify the hero stats and expanded timeline render cleanly at desktop and mobile widths.
 
