@@ -96,14 +96,19 @@ const AboutSection = () => {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="relative shrink-0"
               >
-                <div className="absolute -inset-3 rounded-full bg-primary/20 blur-xl" aria-hidden="true" />
-                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.5)]">
+                <div
+                  className="absolute -inset-3 rounded-full bg-primary/20 blur-xl"
+                  aria-hidden="true"
+                />
+                
+                <div className="relative translate-x-3 w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_35px_-5px_hsl(var(--primary)/0.5)]">
                   <img
                     src={pfpImg}
                     alt="Gaurav Pandey"
                     className="w-full h-full rounded-full object-cover"
                     loading="lazy"
                   />
+                </div>
 
                 </div>
               </motion.div>
