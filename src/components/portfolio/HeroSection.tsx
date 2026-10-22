@@ -79,7 +79,7 @@ const HeroSection = () => {
   }));
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid bg-fixed">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid bg-fixed pt-24 sm:pt-28 pb-16">
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-glow" />
 
@@ -103,7 +103,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="font-mono text-primary text-xs sm:text-sm mb-5 tracking-[0.1em] uppercase">
+          <p className="font-mono text-primary text-xs sm:text-sm mb-3 sm:mb-5 tracking-[0.1em] uppercase">
             &gt; DESIGNING THE FUTURE OF INTELLIGENCE_
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-hero text-3xl min-[390px]:text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 whitespace-nowrap leading-[0.95]"
+          className="font-hero text-3xl min-[390px]:text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 sm:mb-6 whitespace-nowrap leading-[0.95]"
         >
           <span className="gradient-text">Gaurav</span>{" "}
           <span className="gradient-text">Pandey</span>
@@ -122,14 +122,14 @@ const HeroSection = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.9, delay: 0.35 }}
-          className="mx-auto mb-7 h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-primary to-transparent origin-center"
+          className="mx-auto mb-4 sm:mb-7 h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-primary to-transparent origin-center"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-3 mb-8"
+          className="flex flex-wrap justify-center gap-3 mb-5 sm:mb-8"
         >
           <FadingRoles />
         </motion.div>
@@ -138,7 +138,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-3xl mx-auto mb-12 text-center"
+          className="max-w-3xl mx-auto mb-8 sm:mb-12 text-center"
         >
           <p className="text-xs sm:text-sm md:text-lg text-muted-foreground leading-relaxed">
             Exploring <span className="text-foreground font-semibold">intelligent systems</span> where AI meets digital security.
@@ -172,7 +172,7 @@ const HeroSection = () => {
           </motion.button>
         </motion.div>
 
-        <div className="mx-auto mt-7 grid w-full max-w-2xl grid-cols-2 gap-2.5 sm:mt-9 sm:grid-cols-4 sm:gap-3" aria-label="Portfolio highlights">
+        <div className="mx-auto mt-5 grid w-full max-w-2xl grid-cols-2 gap-2.5 sm:mt-9 sm:grid-cols-4 sm:gap-3" aria-label="Portfolio highlights">
           {portfolioStats.map(({ label, value, icon: Icon, suffix }) => (
             <div key={label} className="glass-strong flex min-h-[76px] min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-left sm:min-h-[88px] sm:flex-col sm:items-center sm:justify-center sm:gap-1.5 sm:text-center">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg glass text-primary sm:h-7 sm:w-7">
