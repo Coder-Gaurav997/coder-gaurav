@@ -101,7 +101,7 @@ const AboutSection = () => {
                   aria-hidden="true"
                 />
                 
-                <div className="relative translate-x-9 w-58 h-58 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_35px_-5px_hsl(var(--primary)/0.5)]">
+                <div className="relative translate-x-10 w-60 h-60 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_35px_-5px_hsl(var(--primary)/0.5)]">
                   <img
                     src={pfpImg}
                     alt="Gaurav Pandey"
