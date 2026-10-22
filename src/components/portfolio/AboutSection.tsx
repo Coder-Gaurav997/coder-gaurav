@@ -1,6 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Brain, Code, Shield, Rocket } from "lucide-react";
+import pfpAsset from "@/assets/Best_PFP.png.asset.json";
+
 
 const highlights = [
   { icon: Brain, label: "AI / ML", desc: "Developing intelligent tools with DarkNeuronAI" },
