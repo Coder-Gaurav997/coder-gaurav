@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Brain, Code, Shield, Rocket } from "lucide-react";
-import pfpAsset from "@/assets/Best_PFP.png.asset.json";
+import pfpImg from "@/assets/Best_PFP.png";
 
 
 const highlights = [
@@ -60,7 +60,7 @@ const AboutSection = () => {
         </motion.div>
 
           <div className="glass rounded-3xl p-5 sm:p-8 md:p-12 mb-10">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10 max-w-4xl mx-auto">
               <div className="flex-1 min-w-0 w-full max-w-2xl md:ml-6">
                 <div className="space-y-5 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                   {[
@@ -94,16 +94,17 @@ const AboutSection = () => {
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="relative shrink-0 md:mt-2"
+                className="relative shrink-0"
               >
                 <div className="absolute -inset-3 rounded-full bg-primary/20 blur-xl" aria-hidden="true" />
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.5)]">
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.5)]">
                   <img
-                    src={pfpAsset.url}
+                    src={pfpImg}
                     alt="Gaurav Pandey"
                     className="w-full h-full rounded-full object-cover"
                     loading="lazy"
                   />
+
                 </div>
               </motion.div>
             </div>
