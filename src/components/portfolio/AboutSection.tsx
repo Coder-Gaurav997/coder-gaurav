@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Brain, Code, Shield, Rocket } from "lucide-react";
-import pfpAsset from "@/assets/Best_PFP.png.asset.json";
+import pfpImg from "@/assets/Best_PFP.png";
 
 
 const highlights = [
