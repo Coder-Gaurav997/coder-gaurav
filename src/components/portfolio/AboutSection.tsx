@@ -109,8 +109,6 @@ const AboutSection = () => {
                     loading="lazy"
                   />
                 </div>
-
-                </div>
               </motion.div>
             </div>
           </div>
