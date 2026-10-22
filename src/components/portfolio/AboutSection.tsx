@@ -60,7 +60,7 @@ const AboutSection = () => {
         </motion.div>
 
           <div className="glass rounded-3xl p-5 sm:p-8 md:p-12 mb-10">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10 max-w-4xl mx-auto">
               <div className="flex-1 min-w-0 w-full max-w-2xl md:ml-6">
                 <div className="space-y-5 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                   {[
