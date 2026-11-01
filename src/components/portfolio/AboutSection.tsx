@@ -56,25 +56,22 @@ const AboutSection = () => {
           >
             // ABOUT ME
           </motion.p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">A Little About Me</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text inline-block">The Mind Behind The Code</h2>
         </motion.div>
 
           <div className="glass rounded-3xl p-5 sm:p-8 md:p-12 mb-10">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10 max-w-4xl mx-auto">
-              <div className="flex-1 min-w-0 w-full max-w-2xl md:ml-6">
+              <div className="flex-1 min-w-0 w-full max-w-2xl md:ml-4">
                 <div className="space-y-5 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                   {[
                     <>
-                      I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher, and entrepreneur working across <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span>, and <span className="text-primary">cybersecurity</span>.
+                      I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher, and entrepreneur from Mathura, India. I work across <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span>, and <span className="text-primary">cybersecurity</span> — designing tools that think for themselves and stay secure by default.
                     </>,
                     <>
-                      As <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I guide the creation of intelligent products, bringing ambitious research ideas into practical, dependable systems.
+                      As <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead the creation of intelligent products — turning ambitious research ideas into practical, dependable systems. My projects range from <span className="text-foreground font-medium">Scout</span>, an autonomous research agent, to <span className="text-foreground font-medium">Zentrix</span>, my own programming language.
                     </>,
                     <>
-                      My work ranges from low-level <span className="text-primary">C</span> to rapid <span className="text-primary">Python</span> development and security-minded design, helping me build software that is capable, efficient, and resilient.
-                    </>,
-                    <>
-                      I believe meaningful technology comes from curiosity and a willingness to keep improving. Every project is a chance to turn a promising idea into something useful.
+                      My work spans low-level <span className="text-primary">C</span> to rapid <span className="text-primary">Python</span> development, always guided by a security-minded approach. I believe meaningful technology is born from curiosity, discipline, and the drive to keep improving — every project is a chance to turn a promising idea into something real and useful.
                     </>,
                   ].map((content, i) => (
                     <motion.p
@@ -100,12 +97,12 @@ const AboutSection = () => {
                   className="absolute -inset-3 rounded-full bg-primary/20 blur-xl"
                   aria-hidden="true"
                 />
-                
-                <div className="relative translate-x-10 w-60 h-60 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_35px_-5px_hsl(var(--primary)/0.5)]">
+
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full p-[3px] bg-gradient-to-br from-primary via-emerald-400/60 to-cyan-400/40 shadow-[0_0_35px_-5px_hsl(var(--primary)/0.5)]">
                   <img
                     src={pfpImg}
                     alt="Gaurav Pandey"
-                    className="w-full h-full rounded-full object-cover"
+                    className="w-full h-full rounded-full object-cover object-center"
                     loading="lazy"
                   />
                 </div>

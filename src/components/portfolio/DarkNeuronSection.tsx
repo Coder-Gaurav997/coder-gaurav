@@ -85,12 +85,15 @@ const DarkNeuronSection = () => {
               Smarter neural systems, designed to work efficiently.
             </h3>
           </div>
-          <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg text-center">
+          <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg text-center">
             <p>
-              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development company founded in 2025. We create neural-network solutions for real business and technical challenges.
+              <span className="text-primary font-semibold">DarkNeuronAI</span> is an artificial-intelligence research and development company founded in 2025 by <span className="text-foreground font-semibold">Gaurav Pandey</span>. We build neural-network solutions for real business and technical challenges — from autonomous research agents to efficient, production-ready ML systems.
             </p>
             <p>
-              Our goal is to make advanced AI <span className="text-foreground font-semibold">accessible, efficient, and responsible</span> through models that process quickly, use fewer resources, and protect the data they handle.
+              At the heart of the company is our proprietary <span className="text-primary font-semibold">DarkNeuron</span> system — a machine-learning framework designed to understand complex data and push neural-network performance beyond conventional models while using far less compute. Smarter output, fewer resources, faster results.
+            </p>
+            <p>
+              DarkNeuronAI is built for <span className="text-foreground font-medium">finance, healthcare, and technology</span>, with robust data-privacy protocols at the core of everything we ship. We also believe in giving back — actively contributing models, datasets, and chatbots to the open-source community on <span className="text-primary">Hugging Face</span>.
             </p>
           </div>
         </motion.div>
