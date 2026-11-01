@@ -65,16 +65,13 @@ const AboutSection = () => {
                 <div className="space-y-5 text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                   {[
                     <>
-                      I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher, and entrepreneur working across <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span>, and <span className="text-primary">cybersecurity</span>.
+                      I'm <span className="text-foreground font-semibold">Gaurav Pandey</span>, a {(() => { const dob = new Date(2010, 2, 13); const now = new Date(); let age = now.getFullYear() - dob.getFullYear(); if (now < new Date(now.getFullYear(), 2, 13)) age--; return age; })()}-year-old developer, researcher, and entrepreneur from Mathura, India. I work across <span className="text-primary">artificial intelligence</span>, <span className="text-primary">systems programming</span>, and <span className="text-primary">cybersecurity</span> — designing tools that think for themselves and stay secure by default.
                     </>,
                     <>
-                      As <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I guide the creation of intelligent products, bringing ambitious research ideas into practical, dependable systems.
+                      As <span className="text-primary font-semibold">Founder of DarkNeuronAI</span>, I lead the creation of intelligent products — turning ambitious research ideas into practical, dependable systems. My projects range from <span className="text-foreground font-medium">Scout</span>, an autonomous research agent, to <span className="text-foreground font-medium">Zentrix</span>, my own programming language.
                     </>,
                     <>
-                      My work ranges from low-level <span className="text-primary">C</span> to rapid <span className="text-primary">Python</span> development and security-minded design, helping me build software that is capable, efficient, and resilient.
-                    </>,
-                    <>
-                      I believe meaningful technology comes from curiosity and a willingness to keep improving. Every project is a chance to turn a promising idea into something useful.
+                      My work spans low-level <span className="text-primary">C</span> to rapid <span className="text-primary">Python</span> development, always guided by a security-minded approach. I believe meaningful technology is born from curiosity, discipline, and the drive to keep improving — every project is a chance to turn a promising idea into something real and useful.
                     </>,
                   ].map((content, i) => (
                     <motion.p
