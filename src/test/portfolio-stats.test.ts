@@ -4,9 +4,9 @@ import { calculateAge, portfolioHighlights } from "@/lib/portfolio-stats";
 describe("portfolio highlights", () => {
   it("shows the supplied project and book counts", () => {
     expect(portfolioHighlights).toEqual([
-      { label: "Major Projects", value: "7+" },
-      { label: "Books", value: "1+" },
-      { label: "Projects Built", value: "84+" },
+      { label: "Major Projects", value: "11+" },
+      { label: "Books", value: "2" },
+      { label: "Projects Built", value: "104+" },
     ]);
   });
 
