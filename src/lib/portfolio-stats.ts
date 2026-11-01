@@ -4,7 +4,7 @@ export const calculateAge = (today = new Date()) => {
 };
 
 export const portfolioHighlights = [
-  { label: "Major Projects", value: "7+" },
-  { label: "Books", value: "1+" },
-  { label: "Projects Built", value: "84+" },
+  { label: "Major Projects", value: "11+" },
+  { label: "Books", value: "2" },
+  { label: "Projects Built", value: "104+" },
 ] as const;

@@ -79,7 +79,7 @@ const HeroSection = () => {
   }));
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid bg-fixed pt-24 sm:pt-28 pb-16">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid pt-24 sm:pt-28 pb-16">
       {/* Radial glow */}
       <div className="absolute inset-0 bg-radial-glow" />
 
